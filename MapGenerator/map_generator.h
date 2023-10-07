@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:18:33 by mheinke           #+#    #+#             */
-/*   Updated: 2023/10/07 13:58:22 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/10/07 14:34:45 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct map
 /* Map Generator Functions											*/
 /* **************************************************************** */
 
+int			map_main(int width, int height, int min_floor_percent);
 void		random_walker(t_map *map, int steps);
 void		initialize_map(t_map *map);
 int			floor_coverage(t_map *map);
