@@ -5,79 +5,90 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/07 14:06:14 by mheinke           #+#    #+#              #
-#    Updated: 2023/10/07 14:41:39 by mheinke          ###   ########.fr        #
+#    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
+#    Updated: 2023/10/17 17:12:57 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # **************************************************************************** #
-#                                DIRECTORIES                                   #
+# DIRECTORIES   								                               #
 # **************************************************************************** #
 
-PATH_MAP_GENERATOR	= ./MapGenerator/
+SRCS_DIR	= ./
 
-FILES_MAP_GENERATOR	= map_algo.c \
-						map_file_creator.c \
-						map_generator.c \
-						map_utils.c \
-						map_main.c
+SRCS_FILES	= *.c
 
-SRC_MAP_GENERATOR	= $(addprefix $(PATH_MAP_GENERATOR),$(FILES_MAP_GENERATOR))
+SRCS		= $(addprefix $(SRCS_DIR)/,$(SRCS_FILES))
 
-OBJS_MAP_GENERATOR	= $(SRC_MAP_GENERATOR:.c=.o)
+OBJS		= $(SRCS:.c=.o)
 
-HEAD				= ./MapGenerator/
+HEAD		= ./includes
 
 # **************************************************************************** #
-#                                  VARIABLES                                   #
+# LIBRARIES   								                               	   #
 # **************************************************************************** #
 
-NAME		= map_generator.a
-AR			= ar rcs
-RM			= rm -f
-LIB			= ranlib
+LIBFT_DIR	= ./libft
+LIBFT_PATH	= $(LIBFT_DIR)/libft.a
+
+MLX_FLAGS = -framework OpenGL -framework Appkit -l z
+MLX_DIR = ./mlx-macos
+MLX_PATH = $(MLX_DIR)/libmlx.a
+
+# **************************************************************************** #
+# VARIABLES                                									   #
+# **************************************************************************** #
+
+NAME		= so_long
+
 GCC			= gcc
 CFLAGS 		= -Wall -Wextra -Werror
 
-RESET		= \033[0m
-BOLD		= \033[1m
-RED			= \033[31m
-GREEN		= \033[32m
-YELLOW		= \033[33m
-BLUE		= \033[34m
+HEADER_FILE	= $(HEAD)/so_long.h
+
+MF			= Makefile
+
+END			= $'\x1b[0m
+BOLD		= $'\x1b[1m
+UNDER		= $'\x1b[4m
+REV			= $'\x1b[7m
+GREY		= $'\x1b[30m
+RED			= $'\x1b[31m
+GREEN		= $'\x1b[32m
+YELLOW		= $'\x1b[33m
+BLUE		= $'\x1b[34m
+PURPLE		= $'\x1b[35m
+CYAN		= $'\x1b[36m
+WHITE		= $'\x1b[37m
 
 # **************************************************************************** #
-#                                   TARGETS                                    #
+# TARGETS                                  									   #
 # **************************************************************************** #
 
-all: $(NAME)
+all: libft_make mlx_make $(NAME)
 
-$(OBJS_MAP_GENERATOR): %.o: %.c
-	@if ! $(GCC) $(CFLAGS) -c -I $(HEAD) $< -o $@ 2> error.txt; then \
-		echo "$(RED)$(BOLD)MAKEFILE TERMINATED!$(RESET)"; \
-		echo "$(YELLOW)Unable to create the object file for $<$(RESET)"; \
-		echo "\n\n$(RED)$(BOLD)ERROR$(RESET)"; \
-		sed '$$d' error.txt; \
-		echo "\n\n$(YELLOW)EXITING$(RESET)"; \
-		exit 1; \
-	fi
+$(NAME) : $(MF) $(OBJS) $(LIBFT_PATH) $(MLX_PATH)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT_PATH) $(MLX_PATH) $(MLX_FLAGS) -o $(NAME) 
+	@echo "\n${GREEN}> Compilation of so_long was a success 🎉${END}"
 
-$(NAME): $(OBJS_MAP_GENERATOR)
-	@$(AR) $(NAME) $(OBJS_MAP_GENERATOR)
-	@$(LIB) $(NAME)
-	@echo "$(GREEN)$(BOLD)CREATED THE MAP GENERATOR$(RESET)"
-	@echo "$(YELLOW)Created: $(words $(OBJS_MAP_GENERATOR)) object file(s)$(RESET)"
-	@echo "$(YELLOW)Created: $(NAME)$(RESET)"
+%.o : %.c $(HEADER_FILE) $(MF)
+	@/bin/echo -n .
+	@$(CC) $(CFLAGS) -c $< -o $@ -I $(HEAD)
 
-clean:
-	@$(RM) $(OBJS_MAP_GENERATOR) error.txt
-	@echo "$(GREEN)$(BOLD)REMOVED THE MAP GENERATOR$(RESET)"
-	@echo "$(YELLOW)Removed: $(words $(OBJS_MAP_GENERATOR)) object file(s)$(RESET)"
+clean :
+	@make fclean -C ./libft
+	@make clean -C $(MLX_DIR)
+	@rm -f $(OBJS)
+	@echo "${YELLOW}> All objects files of so_long have been deleted ❌${END}"
 
-fclean: clean
-	@$(RM) $(NAME)
-	@echo "$(YELLOW)Removed: $(NAME)$(RESET)"
+fclean : clean
+	@rm -f $(NAME)
+	@echo "${YELLOW}> Cleaning of so_long has been done ❌${END}"
 
-re: fclean all
+re : fclean make
 
-.PHONY: all clean fclean re
+libft_make :
+	@make -C $(LIBFT_DIR)
+
+mlx_make :
+	@make -C $(MLX_DIR)
