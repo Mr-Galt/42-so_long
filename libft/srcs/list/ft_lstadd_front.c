@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:28:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/10/17 12:30:00 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/10/18 10:53:55 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@
  * (The list now contains two elements: "Hello" followed by "World")
  */
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new_lst)
 {
-	if (!lst || !new)
+	if (!lst || !new_lst)
 		return ;
-	new->next = *lst;
-	*lst = new;
+	new_lst->next = *lst;
+	*lst = new_lst;
 }

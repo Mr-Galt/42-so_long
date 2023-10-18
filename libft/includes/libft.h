@@ -6,22 +6,24 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 08:04:47 by mheinke           #+#    #+#             */
-/*   Updated: 2023/10/17 14:54:43 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/10/18 11:05:28 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <limits.h>
-# include <stdarg.h>
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
 # include <string.h>
+# include <stdarg.h>
+# include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
+# include <stdio.h>
+# include <stddef.h>
+# include <limits.h>
+# include <fcntl.h>
 
 /* ************************************************************************** */
-/*                                 STRUCT                                     */
+/* STRUCT                                                                     */
 /* ************************************************************************** */
 
 typedef struct s_list
@@ -31,7 +33,7 @@ typedef struct s_list
 }					t_list;
 
 /* ************************************************************************** */
-/*                                  CHECK                                     */
+/* CHECK                                                                      */
 /* ************************************************************************** */
 
 int					ft_isalnum(int c);
@@ -42,14 +44,30 @@ int					ft_isprint(int c);
 int					ft_isspace(int c);
 
 /* ************************************************************************** */
-/*                                   LIST                                     */
+/* GET NEXT LINE                                                              */
+/* ************************************************************************** */
+
+# define MAX_FD 1024
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+char				*ft_strchr_gnl(const char *str, int c);
+char				*ft_strcpy_gnl(char *dest, const char *src);
+char				*ft_strdup_gnl(const char *src);
+char				*ft_strjoin_gnl(char *s1, char *s2);
+size_t				ft_strlen_gnl(const char *str);
+char				*get_next_line(int fd);
+
+/* ************************************************************************** */
+/* LIST                                                                       */
 /* ************************************************************************** */
 
 t_list				*ft_lstnew(void *content);
-void				ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstadd_front(t_list **lst, t_list *new_lst);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
-void				ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstadd_back(t_list **lst, t_list *new_lst);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
@@ -57,7 +75,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
 /* ************************************************************************** */
-/*                                 MEMORY                                     */
+/* MEMORY                                                                     */
 /* ************************************************************************** */
 
 void				ft_bzero(void *s, size_t n);
@@ -69,11 +87,19 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *str, int c, size_t len);
 
 /* ************************************************************************** */
-/*                                  PRINT                                     */
+/* PRINTF                                                                     */
 /* ************************************************************************** */
 
+int					printf_char(int c);
+int					printf_string(char *s);
+int					printf_ptr(void *ptr);
+int					ft_printf(const char *s, ...);
+int					printf_nbr(int n);
+int					printf_hex(unsigned int n, int x_switch);
+int					printf_uint(unsigned int n);
+
 /* ************************************************************************** */
-/*                                 STRING                                     */
+/* STRING                                                                     */
 /* ************************************************************************** */
 
 int					ft_atoi(const char *str);
