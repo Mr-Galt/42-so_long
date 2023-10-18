@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/10/18 10:19:29 by mheinke          ###   ########.fr        #
+#    Updated: 2023/10/18 15:51:24 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ HEAD		= ./includes
 LIBFT_DIR	= ./libft
 LIBFT_PATH	= $(LIBFT_DIR)/libft.a
 
-MLX_FLAGS = -framework OpenGL -framework Appkit -l z
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 MLX_DIR = ./mlx-macos
 MLX_PATH = $(MLX_DIR)/libmlx.a
 
@@ -42,7 +42,7 @@ MLX_PATH = $(MLX_DIR)/libmlx.a
 NAME		= so_long
 RM			= rm -f
 GCC			= gcc
-CFLAGS 		= -Wall -Wextra -Werror
+CFLAGS 		= -Wall -Wextra -Werror -fsanitize=address
 
 HEADER_FILE	= $(HEAD)/so_long.h
 
