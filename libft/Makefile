@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 15:11:52 by mheinke           #+#    #+#              #
-#    Updated: 2023/10/17 16:35:45 by mheinke          ###   ########.fr        #
+#    Updated: 2023/10/18 09:34:24 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,19 +118,12 @@ $(NAME): $(OBJS_CHECK) $(OBJS_LIST) $(OBJS_MEMORY)
 	@echo "██║░░░░░██║██╔══██╗██╔══╝░░░░░██║░░░"
 	@echo "███████╗██║██████╦╝██║░░░░░░░░██║░░░"
 	@echo "╚══════╝╚═╝╚═════╝░╚═╝░░░░░░░░╚═╝░░░"
-	@echo "░█████╗░██████╗░███████╗░█████╗░████████╗███████╗██████╗░"
-	@echo "██╔══██╗██╔══██╗██╔════╝██╔══██╗╚══██╔══╝██╔════╝██╔══██╗"
-	@echo "██║░░╚═╝██████╔╝█████╗░░███████║░░░██║░░░█████╗░░██║░░██║"
-	@echo "██║░░██╗██╔══██╗██╔══╝░░██╔══██║░░░██║░░░██╔══╝░░██║░░██║"
-	@echo "╚█████╔╝██║░░██║███████╗██║░░██║░░░██║░░░███████╗██████╔╝"
-	@echo "░╚════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░░░╚═╝░░░╚══════╝╚═════╝░$(RESET)"
-	@echo ""
-	@echo "$(GREEN)Created: $(words $(OBJS_CHECK) $(OBJS_LIST) $(OBJS_MEMORY)) object file(s)$(RESET)"
-	@echo "$(GREEN)Created: $(NAME)$(RESET)"
-	@echo ""
+	@echo "Created: $(words $(OBJS_CHECK) $(OBJS_LIST) $(OBJS_MEMORY)) object file(s) for Libft"
+	@echo "Created: $(NAME)$(RESET)"
 
 clean:
 	@$(RM) $(OBJS_CHECK) $(OBJS_LIST) $(OBJS_MEMORY) $(OBJS_PRINT) $(OBJS_STRING) error.txt
+	@$(RM) $(NAME)
 	@echo ""
 	@echo "$(YELLOW)██╗░░░░░██╗██████╗░███████╗████████╗"
 	@echo "██║░░░░░██║██╔══██╗██╔════╝╚══██╔══╝"
@@ -138,18 +131,10 @@ clean:
 	@echo "██║░░░░░██║██╔══██╗██╔══╝░░░░░██║░░░"
 	@echo "███████╗██║██████╦╝██║░░░░░░░░██║░░░"
 	@echo "╚══════╝╚═╝╚═════╝░╚═╝░░░░░░░░╚═╝░░░"
-	@echo "██████╗░███████╗██╗░░░░░███████╗████████╗███████╗██████╗░"
-	@echo "██╔══██╗██╔════╝██║░░░░░██╔════╝╚══██╔══╝██╔════╝██╔══██╗"
-	@echo "██║░░██║█████╗░░██║░░░░░█████╗░░░░░██║░░░█████╗░░██║░░██║"
-	@echo "██║░░██║██╔══╝░░██║░░░░░██╔══╝░░░░░██║░░░██╔══╝░░██║░░██║"
-	@echo "██████╔╝███████╗███████╗███████╗░░░██║░░░███████╗██████╔╝"
-	@echo "╚═════╝░╚══════╝╚══════╝╚══════╝░░░╚═╝░░░╚══════╝╚═════╝░$(RESET)"
-	@echo ""
-	@echo "$(YELLOW)Removed: $(words $(OBJS_CHECK) $(OBJS_LIST) $(OBJS_MEMORY)) object file(s)$(RESET)"
+	@echo "Removed: $(words $(OBJS_CHECK) $(OBJS_LIST) $(OBJS_MEMORY)) object file(s) from Libft"
+	@echo "Removed: $(NAME)$(RESET)"
 
 fclean: clean
-	@$(RM) $(NAME)
-	@echo "$(YELLOW)Removed: $(NAME)$(RESET)"
 
 re: fclean all
 
