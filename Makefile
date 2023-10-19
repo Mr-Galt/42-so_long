@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/10/18 15:51:24 by mheinke          ###   ########.fr        #
+#    Updated: 2023/10/19 16:24:12 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,10 @@
 
 SRCS_DIR	= ./sources
 
-SRCS_FILES	= main.c
+SRCS_FILES	= main.c \
+				delta_time/delta_time.c \
+				init/init_game.c \
+				init/init_player.c
 
 SRCS		= $(addprefix $(SRCS_DIR)/,$(SRCS_FILES))
 
