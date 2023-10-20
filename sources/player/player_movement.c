@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_player.c                                      :+:      :+:    :+:   */
+/*   player_movement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 15:07:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/10/20 14:11:08 by mheinke          ###   ########.fr       */
+/*   Created: 2023/10/20 14:09:04 by mheinke           #+#    #+#             */
+/*   Updated: 2023/10/20 14:21:14 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-#include <stdio.h>
 
-void	init_player(t_game *game)
+int player_move(int keycode, t_game *game)
 {
-	game->player->current_collect = 0;
-	game->player->img_width = 16;
-	game->player->img_height = 16;
-	game->player->player_pos_x = 20;
-	game->player->player_pos_y = 20;
-	game->player->idle = mlx_xpm_file_to_image(game->mlx, PLAYER, &game->player->img_width, &game->player->img_height);
-	if (!game->player->idle){
-		error("!Playersprite");
-	}
+	if (keycode == 2)
+		game->player->player_pos_x += 1;
+	if (keycode == 0)
+		game->player->player_pos_x -= 1;
+	if (keycode == 1)
+		game->player->player_pos_y += 1;
+	if (keycode == 13)
+		game->player->player_pos_y -= 1;
+	return (0);	
 }

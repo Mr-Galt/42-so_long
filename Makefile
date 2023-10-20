@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/10/19 16:24:12 by mheinke          ###   ########.fr        #
+#    Updated: 2023/10/20 14:09:40 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,16 @@
 SRCS_DIR	= ./sources
 
 SRCS_FILES	= main.c \
-				delta_time/delta_time.c \
+				\
+				utils/delta_time.c \
+				utils/render.c \
+				utils/error_handling.c \
+				utils/key_register.c \
+				\
 				init/init_game.c \
-				init/init_player.c
+				init/init_player.c \
+				\
+				player/player_movement.c
 
 SRCS		= $(addprefix $(SRCS_DIR)/,$(SRCS_FILES))
 

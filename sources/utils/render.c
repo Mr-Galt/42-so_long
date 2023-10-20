@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_player.c                                      :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 15:07:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/10/20 14:11:08 by mheinke          ###   ########.fr       */
+/*   Created: 2023/10/20 09:37:33 by mheinke           #+#    #+#             */
+/*   Updated: 2023/10/20 13:24:06 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-#include <stdio.h>
 
-void	init_player(t_game *game)
+void	render_img(int x, int y, void *sprite, t_game *game)
 {
-	game->player->current_collect = 0;
-	game->player->img_width = 16;
-	game->player->img_height = 16;
-	game->player->player_pos_x = 20;
-	game->player->player_pos_y = 20;
-	game->player->idle = mlx_xpm_file_to_image(game->mlx, PLAYER, &game->player->img_width, &game->player->img_height);
-	if (!game->player->idle){
-		error("!Playersprite");
-	}
+	if (x > SCREEN_WIDTH || y > SCREEN_HEIGHT)
+		return;
+	mlx_put_image_to_window(game->mlx, game->win,
+		sprite, x, y);
 }

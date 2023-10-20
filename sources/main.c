@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/10/19 17:01:12 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/10/20 14:11:42 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	game_loop(t_game *game)
 		calculate_fps(game);
 		mlx_clear_window(game->mlx, game->win);
 		show_fps(game);
-	//	mlx_put_image_to_window(game->mlx, game->win, game->player->idle, 500, 500);
+	//	render_img(0, 0, START_SCREEN, game);
+		render_img(game->player->player_pos_x, game->player->player_pos_y, game->player->idle, game);
+	//	mlx_put_image_to_window(game->mlx, game->win, game->startscreen, 0, 0);
 	}
 	return (0);
 }
@@ -35,6 +37,7 @@ int	main(void)
 	
 	init_game(&game);
 	init_player(&game);
+	key_register(&game);
 	mlx_loop_hook(game.mlx, game_loop, &game);
 	mlx_loop(game.mlx);
 }

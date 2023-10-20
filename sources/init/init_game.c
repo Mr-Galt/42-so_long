@@ -6,11 +6,12 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:53:09 by mheinke           #+#    #+#             */
-/*   Updated: 2023/10/19 16:59:09 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/10/20 11:47:38 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+#include <stdlib.h>
 
 void	init_game(t_game *game)
 {
@@ -19,10 +20,13 @@ void	init_game(t_game *game)
 	game->screen_width = SCREEN_WIDTH;
 	game->screen_height = SCREEN_HEIGHT;
 	game->last_timestamp = 0;
-	game->win = mlx_new_window(game->mlx, game->screen_width, game->screen_height, "My Game...");
 	game->monsters = NULL;
 	game->collectibles = NULL;
-	game->player = (t_player *)malloc(sizeof(t_player));
+	game->player = ft_calloc(sizeof(t_player), 1);
 	if (!game->player)
-		exit (1);
+		error("!Malloc for Player Struct");
+	game->win = mlx_new_window(game->mlx, game->screen_width, game->screen_height, "My Game...");
+	// game->startscreen = mlx_xpm_file_to_image(game->mlx, START_SCREEN, &game->status, &game->status);
+	// if (!game->startscreen)
+	//	error("!Startscreen");
 }

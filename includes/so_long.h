@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/10/19 16:37:46 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/10/20 14:13:41 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,34 @@
 /* DEFINE SIZES                                                               */
 /* ************************************************************************** */
 
-# define SCREEN_WIDTH	1792
-# define SCREEN_HEIGHT	1024
+# define SCREEN_WIDTH	320
+# define SCREEN_HEIGHT	160
+
+/* ************************************************************************** */
+/* DEFINE KEYS                                                                */
+/* ************************************************************************** */
+
+# define A      0
+# define D     	2
+# define W 		13
+# define S		1
+# define E		14
+# define LEFT	123
+# define RIGHT	124
+# define UP		126
+# define DOWN	125
+# define SPACE	49
+# define RETURN	36
+# define ENTER	76
+# define ESC	53
 
 /* ************************************************************************** */
 /* DEFINE PICTURES                                                            */
 /* ************************************************************************** */
 
 # define START_SCREEN	"./assets/start_screen/start_screen.xpm"
+
+# define PLAYER			"./assets/player/player.xpm"
 
 /* ************************************************************************** */
 /* DEFINE STRUCTS                                                             */
@@ -47,6 +67,8 @@ typedef struct s_player
 	int		score;
 	int		img_width;
 	int		img_height;
+	int		player_pos_x;
+	int		player_pos_y;
 	void	*idle;
 	void	*shoots[3];
 	void	*walk[4];
@@ -102,6 +124,19 @@ typedef struct s_game
 long long	delta_time(void);
 void		show_fps(t_game *game);
 void		calculate_fps(t_game *game);
+void		render_img(int x, int y, void *sprite, t_game *game);
+void		error(char *str);
+
+/* ************************************************************************** */
+/* FUNCTIONS - KEY HOOKS                                                      */
+/* ************************************************************************** */
+
+void		key_register(t_game *game);
+int			kill(int keycode, t_game *game);
+int			keydown(int keycode, t_game *game);
+int 		keyup(int keycode, t_game *game);
+
+int 		player_move(int keycode, t_game *game);
 
 /* ************************************************************************** */
 /* FUNCTIONS - Initialization                                                 */
