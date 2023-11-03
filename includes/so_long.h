@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/10/20 14:13:41 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/02 14:42:44 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,18 @@
 # include <sys/time.h>
 # include <fcntl.h>
 # include <stdlib.h> 
+# include <stdio.h>
 
 /* ************************************************************************** */
 /* DEFINE SIZES                                                               */
 /* ************************************************************************** */
 
-# define SCREEN_WIDTH	320
-# define SCREEN_HEIGHT	160
+# define SCREEN_WIDTH	640
+# define SCREEN_HEIGHT	480
+# define SCREEN_NAME	"Martin's Game"
+
+# define CAMERA_WIDTH	320
+# define CAMERA_HEIGHT	240
 
 /* ************************************************************************** */
 /* DEFINE KEYS                                                                */
@@ -55,7 +60,22 @@
 
 # define START_SCREEN	"./assets/start_screen/start_screen.xpm"
 
-# define PLAYER			"./assets/player/player.xpm"
+# define PLAYER			"./assets/player/new.xpm"
+
+/* ************************************************************************** */
+/* DEFINE GAME STATUS                                                         */
+/* ************************************************************************** */
+
+typedef enum
+{
+    START_MENU,
+    OPTION_MENU,
+    CREDITS_MENU,
+	GAME_RUN,
+	GAME_WIN,
+	GAME_OVER,
+}e_game_status;
+
 
 /* ************************************************************************** */
 /* DEFINE STRUCTS                                                             */
@@ -99,22 +119,27 @@ typedef struct s_collectibles
 	int		max_amount;
 } t_collectibles;
 
+typedef struct s_game_status
+{
+	int		actual_status;
+	void	*startscreen;
+} t_game_status;
+
 typedef struct s_game
 {
-	void		*mlx;
-	void		*win;
-	int			status;
-	int			screen_width;
-	int			screen_height;
-	int			debug;
-	long long	timestamp;
-	long long	last_timestamp;
-	int			delta_fps;
-	void		*startscreen;
+	void			*mlx;
+	void			*win;
+	int				screen_width;
+	int				screen_height;
+	int				debug;
+	long long		timestamp;
+	long long		last_timestamp;
+	int				delta_fps;
 
-	t_player	*player;
-	t_list		*monsters;
-	t_list		*collectibles;
+	t_game_status	*status;
+	t_player		*player;
+	t_list			*monsters;
+	t_list			*collectibles;
 }	t_game;
 
 /* ************************************************************************** */
@@ -128,13 +153,16 @@ void		render_img(int x, int y, void *sprite, t_game *game);
 void		error(char *str);
 
 /* ************************************************************************** */
-/* FUNCTIONS - KEY HOOKS                                                      */
+/* FUNCTIONS - KEY & MOUSE HOOKS                                              */
 /* ************************************************************************** */
 
 void		key_register(t_game *game);
 int			kill(int keycode, t_game *game);
 int			keydown(int keycode, t_game *game);
 int 		keyup(int keycode, t_game *game);
+
+void		mouse_register(t_game *game);
+int 		mouse_click(int button, int x, int y, t_game *game);
 
 int 		player_move(int keycode, t_game *game);
 

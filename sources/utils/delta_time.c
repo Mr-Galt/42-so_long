@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:48:49 by mheinke           #+#    #+#             */
-/*   Updated: 2023/10/19 14:53:53 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/01 09:16:07 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ long long	delta_time(void)
 
 void	show_fps(t_game *game)
 {
-	char	*debug_msg;
+	char	*fps_msg;
 	char	*fps;
 
 	fps = ft_itoa(game->delta_fps);
-	debug_msg = ft_strjoin("FPS: ", fps);
-	mlx_string_put(game->mlx, game->win, 20, 30, 11010100, debug_msg);
+	fps_msg = ft_strjoin("FPS: ", fps);
+	mlx_string_put(game->mlx, game->win, 20, 30, 11010100, fps_msg);
 	free(fps);
-	free(debug_msg);
+	free(fps_msg);
 }
 
 void	calculate_fps(t_game *game)
