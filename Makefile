@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/11/02 14:37:48 by mheinke          ###   ########.fr        #
+#    Updated: 2023/11/04 14:20:11 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,11 @@ SRCS_FILES	= main.c \
 				utils/error_handling.c \
 				utils/key_register.c \
 				utils/mouse_register.c \
+				utils/clear_and_free.c \
 				\
 				init/init_game.c \
 				init/init_player.c \
+				init/init_startscreen.c \
 				\
 				player/player_movement.c
 

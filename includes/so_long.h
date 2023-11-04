@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/02 14:42:44 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/04 14:17:54 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,13 @@
 /* DEFINE PICTURES                                                            */
 /* ************************************************************************** */
 
-# define START_SCREEN	"./assets/start_screen/start_screen.xpm"
+# define STARTSCREEN_MENU		"./assets/start_screen/startscreen_0.xpm"
+# define STARTSCREEN_START		"./assets/start_screen/startscreen_1.xpm"
+# define STARTSCREEN_OPTIONS	"./assets/start_screen/startscreen_2.xpm"
+# define STARTSCREEN_CREDITS	"./assets/start_screen/startscreen_3.xpm"
+# define STARTSCREEN_EXIT		"./assets/start_screen/startscreen_4.xpm"
 
-# define PLAYER			"./assets/player/new.xpm"
+# define PLAYER					"./assets/player/new.xpm"
 
 /* ************************************************************************** */
 /* DEFINE GAME STATUS                                                         */
@@ -69,13 +73,13 @@
 typedef enum
 {
     START_MENU,
+	GAME_RUN,
     OPTION_MENU,
     CREDITS_MENU,
-	GAME_RUN,
+	GAME_QUIT,
 	GAME_WIN,
 	GAME_OVER,
 }e_game_status;
-
 
 /* ************************************************************************** */
 /* DEFINE STRUCTS                                                             */
@@ -122,7 +126,12 @@ typedef struct s_collectibles
 typedef struct s_game_status
 {
 	int		actual_status;
-	void	*startscreen;
+	int		startscreen_status;
+	void	*startscreen[5];
+	int		start_button[4];
+	int		start_options[4];
+	int		start_credits[4];
+	int		start_exit[4];	
 } t_game_status;
 
 typedef struct s_game
@@ -152,6 +161,9 @@ void		calculate_fps(t_game *game);
 void		render_img(int x, int y, void *sprite, t_game *game);
 void		error(char *str);
 
+void 		startscreen(t_game *game);
+void 		free_startscreen(t_game *game);
+
 /* ************************************************************************** */
 /* FUNCTIONS - KEY & MOUSE HOOKS                                              */
 /* ************************************************************************** */
@@ -161,16 +173,27 @@ int			kill(int keycode, t_game *game);
 int			keydown(int keycode, t_game *game);
 int 		keyup(int keycode, t_game *game);
 
-void		mouse_register(t_game *game);
+void		mouse_register_startmenu(t_game *game);
 int 		mouse_click(int button, int x, int y, t_game *game);
 
 int 		player_move(int keycode, t_game *game);
 
 /* ************************************************************************** */
-/* FUNCTIONS - Initialization                                                 */
+/* FUNCTIONS - INITIALIZATION                                                 */
 /* ************************************************************************** */
 
 void		init_game(t_game *game);
 void		init_player(t_game *game);
+void 		init_startscreen(t_game *game);
+
+/* ************************************************************************** */
+/* FUNCTIONS - MENU BUTTONS                                                   */
+/* ************************************************************************** */
+
+void 		coordinates_start_button(t_game *game);
+void 		coordinates_options_button(t_game *game);
+void 		coordinates_credits_button(t_game *game);
+void 		coordinates_exit_button(t_game *game);
+
 
 #endif

@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_viewport.c                                    :+:      :+:    :+:   */
+/*   clear_and_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 09:52:50 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/04 14:52:08 by mheinke          ###   ########.fr       */
+/*   Created: 2023/11/04 14:15:28 by mheinke           #+#    #+#             */
+/*   Updated: 2023/11/04 14:19:17 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void	init_viewport(t_game *game)
+void free_startscreen(t_game *game)
 {
-	printf("Test");
+	mlx_destroy_image(game->mlx, game->status->startscreen[0]);
+	mlx_destroy_image(game->mlx, game->status->startscreen[1]);
+	mlx_destroy_image(game->mlx, game->status->startscreen[2]);
+	mlx_destroy_image(game->mlx, game->status->startscreen[3]);
+	mlx_destroy_image(game->mlx, game->status->startscreen[4]);
 }
