@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 13:33:53 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/02 15:03:01 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/04 17:19:44 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	keydown(int keycode, t_game *game)
 {
 	player_move(keycode, game);
-	printf("Key pressed: %d\n", keycode);
+	ft_printf("Key pressed: %d\n", keycode);
 	return (0);
 }
 
@@ -42,7 +42,7 @@ int	kill(int keycode, t_game *game)
 
 void	key_register(t_game *game)
 {
-		mlx_hook(game->win, 17, 1L << 0, kill, game);
+		//mlx_hook(game->win, 17, 1L << 0, kill, game);
 		mlx_hook(game->win, 2, 0, keydown, game);
 		mlx_key_hook(game->win, keyup, game);	
 }

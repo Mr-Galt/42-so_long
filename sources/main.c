@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/04 15:08:21 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/05 21:26:38 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,49 @@ void startscreen(t_game *game)
 {
 	if (game->status->startscreen_status == 0)
 	 	render_img(0, 0, game->status->startscreen[0], game);
-	if (game->status->startscreen_status == 1)
+	else if (game->status->startscreen_status == 1)
 	 	render_img(0, 0, game->status->startscreen[1], game);
-	if (game->status->startscreen_status == 2)
+	else if (game->status->startscreen_status == 2)
 	 	render_img(0, 0, game->status->startscreen[2], game);
-	if (game->status->startscreen_status == 3)
+	else if (game->status->startscreen_status == 3)
 	 	render_img(0, 0, game->status->startscreen[3], game);
-	if (game->status->startscreen_status == 4)
+	else if (game->status->startscreen_status == 4)
 	 	render_img(0, 0, game->status->startscreen[4], game);
+}
+
+void optionscreen(t_game *game)
+{
+	if (game->status->optionscreen_status == 0)
+		render_img(0, 0, game->status->optionscreen[0], game);
+	else if (game->status->optionscreen_status == 1)
+		render_img(0, 0, game->status->optionscreen[1], game);
 }
 
 void game_status(t_game *game)
 {
 	if (game->status->actual_status == START_MENU)
 	{
-		mouse_register_startmenu(game);
 		startscreen(game);
 	}
-	if (game->status->actual_status == GAME_RUN)
+	else if (game->status->actual_status == OPTION_MENU)
+	{
+		optionscreen(game);
+	}
+	else if (game->status->actual_status == CREDITS_MENU)
+	{
+		render_img(0, 0, game->status->creditscreen, game);
+	}
+	else if (game->status->actual_status == GAME_RUN)
 	{
 		render_img(game->player->player_pos_x, game->player->player_pos_y, game->player->idle, game);
-		key_register(game);
 	}
-	if (game->status->actual_status == GAME_QUIT)
+	else if (game->status->actual_status == GAME_QUIT)
 	{
 		mlx_destroy_window(game->mlx, game->win);
 		free_startscreen(game);
-		exit(1);
+		free_optionscreen(game);
+		free_creditscreen(game);
+		exit (1);
 	}
 }
 
@@ -57,10 +73,10 @@ int	game_loop(t_game *game)
 	{
 		calculate_fps(game);
 		mlx_clear_window(game->mlx, game->win);
-		show_fps(game);
 		game_status(game);
+		show_fps(game);
 	}
-	return (0);
+	return (1);
 }
 
 int	main(void)
@@ -69,6 +85,11 @@ int	main(void)
 	
 	init_game(&game);
 	init_player(&game);
+	init_startscreen(&game);
+	init_creditscreen(&game);
+	init_optionscreen(&game);
+	key_register(&game);
+	mouse_register_startmenu(&game);
 	mlx_loop_hook(game.mlx, game_loop, &game);
 	mlx_loop(game.mlx);
 }

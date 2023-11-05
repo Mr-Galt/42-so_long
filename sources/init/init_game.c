@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:53:09 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/04 14:06:58 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/05 21:33:55 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,14 @@ void callocs_for_game(t_game *game)
 	if (!game->status)
 		error("!Malloc for Status Struct");
 }
+
 void	init_game(t_game *game)
 {
 	game->mlx = mlx_init();
 	callocs_for_game(game);
-	game->status->actual_status = START_MENU;
 	game->screen_width = SCREEN_WIDTH;
 	game->screen_height = SCREEN_HEIGHT;
 	game->last_timestamp = 0;
-	game->monsters = NULL;
-	game->collectibles = NULL;
 	game->win = mlx_new_window(game->mlx, game->screen_width, game->screen_height, SCREEN_NAME);
-	init_startscreen(game);
+	game->status->actual_status = START_MENU;
 }

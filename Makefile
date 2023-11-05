@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/11/04 14:20:11 by mheinke          ###   ########.fr        #
+#    Updated: 2023/11/05 20:55:21 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ SRCS_FILES	= main.c \
 				init/init_game.c \
 				init/init_player.c \
 				init/init_startscreen.c \
+				init/init_optionscreen.c \
+				init/init_creditscreen.c \
 				\
 				player/player_movement.c
 
@@ -44,7 +46,7 @@ HEAD		= ./includes
 LIBFT_DIR	= ./libft
 LIBFT_PATH	= $(LIBFT_DIR)/libft.a
 
-MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework Cocoa -framework OpenGL -framework AppKit
 MLX_DIR = ./mlx-macos
 MLX_PATH = $(MLX_DIR)/libmlx.a
 
@@ -55,7 +57,8 @@ MLX_PATH = $(MLX_DIR)/libmlx.a
 NAME		= so_long
 RM			= rm -f
 GCC			= gcc
-CFLAGS 		= -Wall -Wextra -Werror -fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror 
+CFLAGS		+= -fsanitize=address
 
 HEADER_FILE	= $(HEAD)/so_long.h
 

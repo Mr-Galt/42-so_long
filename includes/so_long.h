@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/04 14:17:54 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/05 21:13:28 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,19 @@
 # define ESC	53
 
 /* ************************************************************************** */
-/* DEFINE PICTURES                                                            */
+/* DEFINE SPRITES                                                             */
 /* ************************************************************************** */
 
-# define STARTSCREEN_MENU		"./assets/start_screen/startscreen_0.xpm"
-# define STARTSCREEN_START		"./assets/start_screen/startscreen_1.xpm"
-# define STARTSCREEN_OPTIONS	"./assets/start_screen/startscreen_2.xpm"
-# define STARTSCREEN_CREDITS	"./assets/start_screen/startscreen_3.xpm"
-# define STARTSCREEN_EXIT		"./assets/start_screen/startscreen_4.xpm"
+# define STARTSCREEN_MENU		"./assets/menu/start_screen/startscreen_0.xpm"
+# define STARTSCREEN_START		"./assets/menu/start_screen/startscreen_1.xpm"
+# define STARTSCREEN_OPTIONS	"./assets/menu/start_screen/startscreen_2.xpm"
+# define STARTSCREEN_CREDITS	"./assets/menu/start_screen/startscreen_3.xpm"
+# define STARTSCREEN_EXIT		"./assets/menu/start_screen/startscreen_4.xpm"
+
+# define CREDITSCREEN			"./assets/menu/credit_screen/creditscreen.xpm"
+
+# define OPTIONSCREEN			"./assets/menu/option_screen/optionscreen_0.xpm"
+# define OPTIONSCREEN_BACK		"./assets/menu/option_screen/optionscreen_1.xpm"
 
 # define PLAYER					"./assets/player/new.xpm"
 
@@ -94,44 +99,28 @@ typedef struct s_player
 	int		player_pos_x;
 	int		player_pos_y;
 	void	*idle;
-	void	*shoots[3];
-	void	*walk[4];
-	void	*attack[8];
-	void	*damage[4];
-	void	*die[17];
 	int		current_collect;
 	int		max_collect;
 }	t_player;
 
-typedef struct s_enemy
-{
-	int		life;
-	int		score_value;
-	int		img_width;
-	int		img_height;
-	void	*idle[20];
-	void	*walk[4];
-	void	*attack[6];
-	void	*die[15];
-}	t_enemy;
-
-typedef struct s_collectibles
-{
-	void	*animation;
-	int		score_value;
-	int		current_amount;
-	int		max_amount;
-} t_collectibles;
 
 typedef struct s_game_status
 {
 	int		actual_status;
+	
 	int		startscreen_status;
 	void	*startscreen[5];
 	int		start_button[4];
 	int		start_options[4];
 	int		start_credits[4];
 	int		start_exit[4];	
+
+	void	*creditscreen;
+
+	int		optionscreen_status;
+	void	*optionscreen[2];
+	int		option_back[4];
+	
 } t_game_status;
 
 typedef struct s_game
@@ -147,8 +136,6 @@ typedef struct s_game
 
 	t_game_status	*status;
 	t_player		*player;
-	t_list			*monsters;
-	t_list			*collectibles;
 }	t_game;
 
 /* ************************************************************************** */
@@ -163,6 +150,9 @@ void		error(char *str);
 
 void 		startscreen(t_game *game);
 void 		free_startscreen(t_game *game);
+void 		optionscreen(t_game *game);
+void 		free_optionscreen(t_game *game);
+void 		free_creditscreen(t_game *game);
 
 /* ************************************************************************** */
 /* FUNCTIONS - KEY & MOUSE HOOKS                                              */
@@ -183,8 +173,12 @@ int 		player_move(int keycode, t_game *game);
 /* ************************************************************************** */
 
 void		init_game(t_game *game);
-void		init_player(t_game *game);
+
 void 		init_startscreen(t_game *game);
+void 		init_creditscreen(t_game *game);
+void 		init_optionscreen(t_game *game);
+
+void		init_player(t_game *game);
 
 /* ************************************************************************** */
 /* FUNCTIONS - MENU BUTTONS                                                   */
