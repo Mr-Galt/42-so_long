@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/05 21:26:38 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/06 09:22:06 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void game_status(t_game *game)
 		free_startscreen(game);
 		free_optionscreen(game);
 		free_creditscreen(game);
+		free_structs(game);
 		exit (1);
 	}
 }

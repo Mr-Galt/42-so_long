@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/06 09:06:29 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/06 09:11:26 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 /* ************************************************************************** */
-/* Libraries                                                                  */
+/* EXTERNAL LIBRARIES                                                         */
 /* ************************************************************************** */
 
 # include "../libft/includes/libft.h"
@@ -24,6 +24,12 @@
 # include <fcntl.h>
 # include <stdlib.h> 
 # include <stdio.h>
+
+/* ************************************************************************** */
+/* INTERNAL HEADERS                                                           */
+/* ************************************************************************** */
+
+
 
 /* ************************************************************************** */
 /* DEFINE SIZES                                                               */
@@ -153,6 +159,7 @@ void 		free_startscreen(t_game *game);
 void 		optionscreen(t_game *game);
 void 		free_optionscreen(t_game *game);
 void 		free_creditscreen(t_game *game);
+void 		free_player(t_game *game);
 void 		free_structs(t_game *game);
 
 /* ************************************************************************** */
