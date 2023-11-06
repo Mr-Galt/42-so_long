@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/05 21:13:28 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/06 09:06:29 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,7 @@ void 		free_startscreen(t_game *game);
 void 		optionscreen(t_game *game);
 void 		free_optionscreen(t_game *game);
 void 		free_creditscreen(t_game *game);
+void 		free_structs(t_game *game);
 
 /* ************************************************************************** */
 /* FUNCTIONS - KEY & MOUSE HOOKS                                              */
@@ -188,6 +189,5 @@ void 		coordinates_start_button(t_game *game);
 void 		coordinates_options_button(t_game *game);
 void 		coordinates_credits_button(t_game *game);
 void 		coordinates_exit_button(t_game *game);
-
 
 #endif
