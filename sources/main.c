@@ -6,33 +6,11 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/06 09:22:06 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:29:26 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-void startscreen(t_game *game)
-{
-	if (game->status->startscreen_status == 0)
-	 	render_img(0, 0, game->status->startscreen[0], game);
-	else if (game->status->startscreen_status == 1)
-	 	render_img(0, 0, game->status->startscreen[1], game);
-	else if (game->status->startscreen_status == 2)
-	 	render_img(0, 0, game->status->startscreen[2], game);
-	else if (game->status->startscreen_status == 3)
-	 	render_img(0, 0, game->status->startscreen[3], game);
-	else if (game->status->startscreen_status == 4)
-	 	render_img(0, 0, game->status->startscreen[4], game);
-}
-
-void optionscreen(t_game *game)
-{
-	if (game->status->optionscreen_status == 0)
-		render_img(0, 0, game->status->optionscreen[0], game);
-	else if (game->status->optionscreen_status == 1)
-		render_img(0, 0, game->status->optionscreen[1], game);
-}
 
 void game_status(t_game *game)
 {
@@ -46,7 +24,7 @@ void game_status(t_game *game)
 	}
 	else if (game->status->actual_status == CREDITS_MENU)
 	{
-		render_img(0, 0, game->status->creditscreen, game);
+		creditscreen(game);
 	}
 	else if (game->status->actual_status == GAME_RUN)
 	{
@@ -58,7 +36,9 @@ void game_status(t_game *game)
 		free_startscreen(game);
 		free_optionscreen(game);
 		free_creditscreen(game);
+		free_player(game);
 		free_structs(game);
+		free(game->mlx);
 		exit (1);
 	}
 }
@@ -72,8 +52,8 @@ int	game_loop(t_game *game)
 	delta_now = now - game->last_timestamp;
 	if (delta_now > 15)
 	{
-		calculate_fps(game);
 		mlx_clear_window(game->mlx, game->win);
+		calculate_fps(game);
 		game_status(game);
 		show_fps(game);
 	}
@@ -86,9 +66,7 @@ int	main(void)
 	
 	init_game(&game);
 	init_player(&game);
-	init_startscreen(&game);
-	init_creditscreen(&game);
-	init_optionscreen(&game);
+	init_game_menu(&game);
 	key_register(&game);
 	mouse_register_startmenu(&game);
 	mlx_loop_hook(game.mlx, game_loop, &game);

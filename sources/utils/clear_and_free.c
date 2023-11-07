@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:15:28 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/06 09:34:43 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/07 14:13:13 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,13 @@ void free_optionscreen(t_game *game)
 
 void free_creditscreen(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->status->creditscreen);
+	mlx_destroy_image(game->mlx, game->status->creditscreen[0]);
+	mlx_destroy_image(game->mlx, game->status->creditscreen[1]);
 }
 
 void free_player(t_game *game)
 {
 	mlx_destroy_image(game->mlx, game->player->idle);
-}
-
-void free_images(t_game *game)
-{
-	int i;
-
-	i = 0;
 }
 
 void free_structs(t_game *game)

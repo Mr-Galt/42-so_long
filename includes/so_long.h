@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/06 09:11:26 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/07 14:27:26 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@
 # define STARTSCREEN_CREDITS	"./assets/menu/start_screen/startscreen_3.xpm"
 # define STARTSCREEN_EXIT		"./assets/menu/start_screen/startscreen_4.xpm"
 
-# define CREDITSCREEN			"./assets/menu/credit_screen/creditscreen.xpm"
+# define CREDITSCREEN			"./assets/menu/credit_screen/creditscreen_0.xpm"
+# define CREDITSCREEN_BACK		"./assets/menu/credit_screen/creditscreen_1.xpm"
 
 # define OPTIONSCREEN			"./assets/menu/option_screen/optionscreen_0.xpm"
 # define OPTIONSCREEN_BACK		"./assets/menu/option_screen/optionscreen_1.xpm"
@@ -121,7 +122,9 @@ typedef struct s_game_status
 	int		start_credits[4];
 	int		start_exit[4];	
 
-	void	*creditscreen;
+	int		creditscreen_status;
+	void	*creditscreen[2];
+	int		credit_back[4];
 
 	int		optionscreen_status;
 	void	*optionscreen[2];
@@ -158,6 +161,7 @@ void 		startscreen(t_game *game);
 void 		free_startscreen(t_game *game);
 void 		optionscreen(t_game *game);
 void 		free_optionscreen(t_game *game);
+void 		creditscreen(t_game *game);
 void 		free_creditscreen(t_game *game);
 void 		free_player(t_game *game);
 void 		free_structs(t_game *game);
@@ -182,6 +186,7 @@ int 		player_move(int keycode, t_game *game);
 
 void		init_game(t_game *game);
 
+void 		init_game_menu(t_game*game);
 void 		init_startscreen(t_game *game);
 void 		init_creditscreen(t_game *game);
 void 		init_optionscreen(t_game *game);
@@ -196,5 +201,11 @@ void 		coordinates_start_button(t_game *game);
 void 		coordinates_options_button(t_game *game);
 void 		coordinates_credits_button(t_game *game);
 void 		coordinates_exit_button(t_game *game);
+
+/* ************************************************************************** */
+/* TESTS                                                                      */
+/* ************************************************************************** */
+
+int			put_a_string(t_game *game);
 
 #endif

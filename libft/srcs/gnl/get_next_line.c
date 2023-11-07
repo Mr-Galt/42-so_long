@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 10:57:12 by mheinke           #+#    #+#             */
-/*   Updated: 2023/10/18 11:02:05 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/06 14:52:55 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ static char	*ft_free(char *buff1, char *buff2)
 
 char	*get_next_line(int fd)
 {
-	static char	*read_buffer[MAX_FD];
 	char		*read_content;
 	int			read_bytes;
+	static char	*read_buffer[MAX_FD];
 
 	read_bytes = 1;
 	if (fd < 0 || fd > MAX_FD || BUFFER_SIZE <= 0 || BUFFER_SIZE > INT_MAX)

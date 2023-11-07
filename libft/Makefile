@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 15:11:52 by mheinke           #+#    #+#              #
-#    Updated: 2023/10/18 11:18:08 by mheinke          ###   ########.fr        #
+#    Updated: 2023/11/06 14:44:21 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRCS_CHECK		= ft_isalnum.c \
 					ft_isdigit.c \
 					ft_isprint.c \
 					ft_isspace.c
-SRCS_GNL		= get_next_line.c
+SRCS_GNL		= get_next_line.c \
+					get_next_line_utils.c
 SRCS_LIST		= ft_lstadd_back.c \
 					ft_lstadd_front.c \
 					ft_lstclear.c \
