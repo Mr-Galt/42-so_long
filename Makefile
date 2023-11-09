@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/11/07 16:25:53 by mheinke          ###   ########.fr        #
+#    Updated: 2023/11/09 10:12:14 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,26 +14,35 @@
 # DIRECTORIES   								                               #
 # **************************************************************************** #
 
-SRCS_DIR	= ./sources
+SRCS_DIR	= 	./sources
 
-SRCS_FILES	= main.c \
+SRCS_FILES	=	main.c \
 				\
 				utils/delta_time.c \
+				utils/statemachine.c \
 				utils/render.c \
 				utils/error_handling.c \
-				utils/key_register.c \
-				utils/mouse_register.c \
 				utils/clear_and_free.c \
+				\
+				user_input/input_hooks.c \
+				user_input/key_input.c \
+				user_input/mouse_input.c \
 				\
 				init/init_game.c \
 				init/init_player.c \
 				init/init_startscreen.c \
 				init/init_optionscreen.c \
 				init/init_creditscreen.c \
+				init/init_loadingscreen.c \
 				\
 				player/player_movement.c \
 				\
-				menu/startmenu.c \
+				menu/menu_start_screen.c \
+				menu/menu_buttons.c \
+				menu/menu_mouse_hover.c \
+				menu/menu_mouse_click.c \
+				\
+				loadingscreen/loadingscreen.c \
 
 SRCS		= $(addprefix $(SRCS_DIR)/,$(SRCS_FILES))
 
@@ -109,7 +118,7 @@ $(NAME) : $(OBJS) $(LIBFT_PATH) $(MLX_PATH)
 	@echo "${GREEN}$$HEADER"
 	@echo "Created: $(words $(OBJS)) object file(s) for so_long"
 	@echo "Created: $(NAME)$(RESET)"
-	@make loop_example
+#	@make loop_example
 
 clean :
 	@make fclean -C $(LIBFT_DIR)
@@ -131,7 +140,6 @@ libft_make :
 mlx_make :
 	@make -C $(MLX_DIR)
 
-.PHONY: loop_example
 loop_example:
 	@i=0 ; \
 	while [ $$i -lt 10 ]; do \

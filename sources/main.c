@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/07 15:29:26 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/09 10:55:02 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,30 @@
 
 void game_status(t_game *game)
 {
-	if (game->status->actual_status == START_MENU)
+	if (game->state == STATE_START_MENU)
 	{
 		startscreen(game);
 	}
-	else if (game->status->actual_status == OPTION_MENU)
+	else if (game->state == STATE_OPTIONS)
 	{
 		optionscreen(game);
 	}
-	else if (game->status->actual_status == CREDITS_MENU)
+	else if (game->state == STATE_CREDITS)
 	{
 		creditscreen(game);
 	}
-	else if (game->status->actual_status == GAME_RUN)
+	else if (game->state == STATE_LOADING)
+	{
+		loadingscreen(game);
+	}
+	else if (game->state == STATE_GAME)
 	{
 		render_img(game->player->player_pos_x, game->player->player_pos_y, game->player->idle, game);
 	}
-	else if (game->status->actual_status == GAME_QUIT)
+	else if (game->state == STATE_EXIT)
 	{
 		mlx_destroy_window(game->mlx, game->win);
-		free_startscreen(game);
-		free_optionscreen(game);
-		free_creditscreen(game);
+//		kill_menu(game);
 		free_player(game);
 		free_structs(game);
 		free(game->mlx);
@@ -63,12 +65,12 @@ int	game_loop(t_game *game)
 int	main(void)
 {
 	t_game	game;
-	
+
 	init_game(&game);
 	init_player(&game);
 	init_game_menu(&game);
-	key_register(&game);
-	mouse_register_startmenu(&game);
+	init_loadingscreen(&game);
+	input_hooks(&game);
 	mlx_loop_hook(game.mlx, game_loop, &game);
 	mlx_loop(game.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/07 14:27:26 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/09 10:54:43 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 /* INTERNAL HEADERS                                                           */
 /* ************************************************************************** */
 
-
+# include "sprites.h"
 
 /* ************************************************************************** */
 /* DEFINE SIZES                                                               */
@@ -61,37 +61,20 @@
 # define ESC	53
 
 /* ************************************************************************** */
-/* DEFINE SPRITES                                                             */
-/* ************************************************************************** */
-
-# define STARTSCREEN_MENU		"./assets/menu/start_screen/startscreen_0.xpm"
-# define STARTSCREEN_START		"./assets/menu/start_screen/startscreen_1.xpm"
-# define STARTSCREEN_OPTIONS	"./assets/menu/start_screen/startscreen_2.xpm"
-# define STARTSCREEN_CREDITS	"./assets/menu/start_screen/startscreen_3.xpm"
-# define STARTSCREEN_EXIT		"./assets/menu/start_screen/startscreen_4.xpm"
-
-# define CREDITSCREEN			"./assets/menu/credit_screen/creditscreen_0.xpm"
-# define CREDITSCREEN_BACK		"./assets/menu/credit_screen/creditscreen_1.xpm"
-
-# define OPTIONSCREEN			"./assets/menu/option_screen/optionscreen_0.xpm"
-# define OPTIONSCREEN_BACK		"./assets/menu/option_screen/optionscreen_1.xpm"
-
-# define PLAYER					"./assets/player/new.xpm"
-
-/* ************************************************************************** */
 /* DEFINE GAME STATUS                                                         */
 /* ************************************************************************** */
 
 typedef enum
 {
-    START_MENU,
-	GAME_RUN,
-    OPTION_MENU,
-    CREDITS_MENU,
-	GAME_QUIT,
-	GAME_WIN,
-	GAME_OVER,
-}e_game_status;
+	STATE_START_MENU,
+    STATE_OPTIONS,
+    STATE_CREDITS,
+    STATE_EXIT,
+    STATE_LOADING,
+    STATE_GAME,
+    STATE_WIN,
+    STATE_LOSE
+}e_state;
 
 /* ************************************************************************** */
 /* DEFINE STRUCTS                                                             */
@@ -111,10 +94,8 @@ typedef struct s_player
 }	t_player;
 
 
-typedef struct s_game_status
-{
-	int		actual_status;
-	
+typedef struct s_start_menu
+{	
 	int		startscreen_status;
 	void	*startscreen[5];
 	int		start_button[4];
@@ -129,21 +110,32 @@ typedef struct s_game_status
 	int		optionscreen_status;
 	void	*optionscreen[2];
 	int		option_back[4];
-	
-} t_game_status;
+} t_start_menu;
+
+typedef struct s_loadingscreen
+{	
+	void	*screen;
+	void	*quote[5];
+} t_loadingscreen;
 
 typedef struct s_game
 {
 	void			*mlx;
 	void			*win;
+	
 	int				screen_width;
 	int				screen_height;
+
+	int				state;
+
 	int				debug;
+	
 	long long		timestamp;
 	long long		last_timestamp;
 	int				delta_fps;
 
-	t_game_status	*status;
+	t_start_menu	*start_menu;
+	t_loadingscreen	*loadingscreen;
 	t_player		*player;
 }	t_game;
 
@@ -163,6 +155,7 @@ void 		optionscreen(t_game *game);
 void 		free_optionscreen(t_game *game);
 void 		creditscreen(t_game *game);
 void 		free_creditscreen(t_game *game);
+void		loadingscreen(t_game *game);
 void 		free_player(t_game *game);
 void 		free_structs(t_game *game);
 
@@ -170,13 +163,22 @@ void 		free_structs(t_game *game);
 /* FUNCTIONS - KEY & MOUSE HOOKS                                              */
 /* ************************************************************************** */
 
-void		key_register(t_game *game);
-int			kill(int keycode, t_game *game);
+void		input_hooks(t_game *game);
+int 		mouse_click(int button, int x, int y, t_game *game);
+int 		mouse_move(int x, int y, t_game *game);
+
+void		key_register_startmenu(t_game *game);
+int			kill(t_game *game);
 int			keydown(int keycode, t_game *game);
 int 		keyup(int keycode, t_game *game);
 
 void		mouse_register_startmenu(t_game *game);
-int 		mouse_click(int button, int x, int y, t_game *game);
+int 		mouse_click_start_menu(int button, int x, int y, t_game *game);
+int 		mouse_move_start_menu(int x, int y, t_game *game) ;
+
+void		mouse_hover_start_menu(int x, int y, t_game *game);
+void		mouse_hover_option_menu(int x, int y, t_game *game);
+void		mouse_hover_credit_menu(int x, int y, t_game *game);
 
 int 		player_move(int keycode, t_game *game);
 
@@ -190,6 +192,7 @@ void 		init_game_menu(t_game*game);
 void 		init_startscreen(t_game *game);
 void 		init_creditscreen(t_game *game);
 void 		init_optionscreen(t_game *game);
+void		init_loadingscreen(t_game *game);
 
 void		init_player(t_game *game);
 
@@ -201,6 +204,18 @@ void 		coordinates_start_button(t_game *game);
 void 		coordinates_options_button(t_game *game);
 void 		coordinates_credits_button(t_game *game);
 void 		coordinates_exit_button(t_game *game);
+
+/* ************************************************************************** */
+/* FUNCTIONS - STATE MACHINE                                                  */
+/* ************************************************************************** */
+
+int			check_state(t_game *game);
+void 		change_state(t_game *game, e_state new_state);
+void		kill_menu(t_game *game);
+
+int			check_button_start_menu(int x, int y, t_game *game);
+int			check_button_option_menu(int x, int y, t_game *game);
+int			check_button_credit_menu(int x, int y, t_game *game);
 
 /* ************************************************************************** */
 /* TESTS                                                                      */
