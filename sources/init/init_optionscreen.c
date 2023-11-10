@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:54:48 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/09 09:34:03 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/10 12:47:32 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,14 @@ void coordinates_option_back(t_game *game)
 
 void init_optionscreen(t_game *game)
 {
+	int x;
+	int y;
+	
+	x = 80;
+	y = 30;
 	game->start_menu->optionscreen_status = 0;
-	game->start_menu->optionscreen[0] = mlx_xpm_file_to_image(game->mlx, OPTIONSCREEN, &game->screen_width, &game->screen_height);
-	game->start_menu->optionscreen[1] = mlx_xpm_file_to_image(game->mlx, OPTIONSCREEN_BACK, &game->screen_width, &game->screen_height);
+	game->start_menu->optionscreen = mlx_xpm_file_to_image(game->mlx, OPTIONSCREEN, &game->screen_width, &game->screen_height);
+	game->start_menu->optionscreen_button[0] = mlx_xpm_file_to_image(game->mlx, OPTION_BUTTON_BACK_1, &x, &y);
+	game->start_menu->optionscreen_button[1] = mlx_xpm_file_to_image(game->mlx, OPTION_BUTTON_BACK_2, &x, &y);
 	coordinates_option_back(game);
 }

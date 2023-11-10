@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:12:51 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/09 09:58:12 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/10 12:40:12 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@ void startscreen(t_game *game)
 
 void optionscreen(t_game *game)
 {
+	render_img(0, 0, game->start_menu->optionscreen, game);
 	if (game->start_menu->optionscreen_status == 0)
-		render_img(0, 0, game->start_menu->optionscreen[0], game);
+		render_img(123, 255, game->start_menu->optionscreen_button[0], game);
 	else if (game->start_menu->optionscreen_status == 1)
-	 	render_img(0, 0, game->start_menu->optionscreen[1], game);
+	 	render_img(123, 255, game->start_menu->optionscreen_button[1], game);
 }
 
 void creditscreen(t_game *game)

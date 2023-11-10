@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/09 10:54:43 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:41:16 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@
 # define SCREEN_WIDTH	640
 # define SCREEN_HEIGHT	480
 # define SCREEN_NAME	"Martin's Game"
+
+# define OFFSET_S		1
+# define OFFSET_M		1.5
+# define OFFSET_L		2
 
 # define CAMERA_WIDTH	320
 # define CAMERA_HEIGHT	240
@@ -108,7 +112,8 @@ typedef struct s_start_menu
 	int		credit_back[4];
 
 	int		optionscreen_status;
-	void	*optionscreen[2];
+	void	*optionscreen;
+	void	*optionscreen_button[2];
 	int		option_back[4];
 } t_start_menu;
 
@@ -125,6 +130,7 @@ typedef struct s_game
 	
 	int				screen_width;
 	int				screen_height;
+	int				screen_size;
 
 	int				state;
 

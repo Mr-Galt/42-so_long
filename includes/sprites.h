@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:15:53 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/09 10:35:45 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:49:17 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@
 # define CREDITSCREEN			"./assets/menu/credit_screen/creditscreen_0.xpm"
 # define CREDITSCREEN_BACK		"./assets/menu/credit_screen/creditscreen_1.xpm"
 
-# define OPTIONSCREEN			"./assets/menu/option_screen/optionscreen_0.xpm"
-# define OPTIONSCREEN_BACK		"./assets/menu/option_screen/optionscreen_1.xpm"
+# define OPTIONSCREEN			"./assets/menu/option_screen/optionscreen.xpm"
+# define OPTION_BUTTON_BACK_1	"./assets/menu/option_screen/option_button_back.xpm"
+# define OPTION_BUTTON_BACK_2	"./assets/menu/option_screen/option_button_back_1.xpm"
 
 # define PLAYER					"./assets/player/new.xpm"
 
