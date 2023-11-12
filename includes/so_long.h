@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/12 10:38:09 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/12 18:39:32 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,13 +107,19 @@ typedef struct s_start_menu
 	int		start_exit[4];	
 
 	int		creditscreen_status;
-	void	*creditscreen[2];
+	void	*creditscreen_s[2];
 	int		credit_back[4];
 
 	int		optionscreen_status;
-	void	*optionscreen;
+	void	*optionscreen_s[2];
 	void	*optionscreen_button[2];
 	int		option_back[4];
+
+	int		option_screensize_status;
+	void	*option_screensize_s[3];
+	int		button_screensize_1[4];
+	int		button_screensize_2[4];
+	int		button_screensize_3[4];
 } t_start_menu;
 
 typedef struct s_loadingscreen
@@ -163,6 +169,7 @@ void 		free_creditscreen(t_game *game);
 void		loadingscreen(t_game *game);
 void 		free_player(t_game *game);
 void 		free_structs(t_game *game);
+void		window_changer(t_game *game);
 
 /* ************************************************************************** */
 /* FUNCTIONS - KEY & MOUSE HOOKS                                              */
@@ -217,10 +224,12 @@ void 		init_startmenu_buttons(t_game *game);
 
 int			check_state(t_game *game);
 void 		change_state(t_game *game, e_state new_state);
+int 		check_screenstatus(t_game *game);
 void		kill_menu(t_game *game);
 
 int			check_button_start_menu(int x, int y, t_game *game);
 int			check_button_option_menu(int x, int y, t_game *game);
+int			check_button_screensize(int x, int y, t_game *game);
 int			check_button_credit_menu(int x, int y, t_game *game);
 
 /* ************************************************************************** */

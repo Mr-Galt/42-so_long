@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/12 10:35:57 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/12 12:14:38 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void do_it(t_game *game)
 int	main(void)
 {
 	t_game	game;
-
+	
 	init_game(&game);
 	init_player(&game);
 	init_game_menu(&game);

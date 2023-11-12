@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:15:53 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/12 10:13:29 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/12 17:11:36 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SPRITES_H
 
 /* ************************************************************************** */
-/* DEFINE SPRITES                                                             */
+/* DEFINE S SPRITES                                                           */
 /* ************************************************************************** */
 
 # define S_STARTSCREEN_MENU		"./assets/menu/start_screen/s/startscreen_s_0.xpm"
@@ -23,18 +23,22 @@
 # define S_STARTSCREEN_CREDITS	"./assets/menu/start_screen/s/startscreen_s_3.xpm"
 # define S_STARTSCREEN_EXIT		"./assets/menu/start_screen/s/startscreen_s_4.xpm"
 
-# define CREDITSCREEN			"./assets/menu/credit_screen/creditscreen_0.xpm"
-# define CREDITSCREEN_BACK		"./assets/menu/credit_screen/creditscreen_1.xpm"
+# define S_CREDITSCREEN_0		"./assets/menu/credit_screen/s/creditscreen_s_0.xpm"
+# define S_CREDITSCREEN_1		"./assets/menu/credit_screen/s/creditscreen_s_1.xpm"
 
-# define OPTIONSCREEN			"./assets/menu/option_screen/optionscreen.xpm"
-# define OPTION_BUTTON_BACK_1	"./assets/menu/option_screen/option_button_back.xpm"
-# define OPTION_BUTTON_BACK_2	"./assets/menu/option_screen/option_button_back_1.xpm"
+# define S_OPTIONSCREEN_0		"./assets/menu/option_screen/s/optionscreen_s_0.xpm"
+# define S_OPTIONSCREEN_1		"./assets/menu/option_screen/s/optionscreen_s_1.xpm"
+# define S_OPTION_0				"./assets/menu/option_screen/s/option_screensize_s_0.xpm"
+# define S_OPTION_1				"./assets/menu/option_screen/s/option_screensize_s_1.xpm"
+# define S_OPTION_2				"./assets/menu/option_screen/s/option_screensize_s_2.xpm"
 
 # define PLAYER					"./assets/player/new.xpm"
 
 
 
-
+/* ************************************************************************** */
+/* DEFINE M SPRITES                                                           */
+/* ************************************************************************** */
 
 # define M_STARTSCREEN_MENU		"./assets/menu/start_screen/m/startscreen_m_0.xpm"
 # define M_STARTSCREEN_START	"./assets/menu/start_screen/m/startscreen_m_1.xpm"

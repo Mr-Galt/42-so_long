@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:25:33 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/12 10:32:48 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/12 18:27:34 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,6 @@ int	keydown(int keycode, t_game *game)
 {
 	if (check_state(game) == STATE_START_MENU || check_state(game) == STATE_OPTIONS || check_state(game) == STATE_CREDITS )
 	{
-			if (keycode == W)
-			{
-				mlx_destroy_window(game->mlx, game->win);
-				game->screen_height = 1280;
-				game->screen_width = 960;
-				game->screen_size = OFFSET_M;
-				game->win = mlx_new_window(game->mlx, game->screen_height, game->screen_width, "OFFSET M");
-				game->start_menu->startscreen_status = 0;
-				do_it(game);
-			}
 			return (0);
 	}		
 	if (check_state(game) == STATE_GAME)	

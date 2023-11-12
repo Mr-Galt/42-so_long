@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/11/12 08:34:33 by mheinke          ###   ########.fr        #
+#    Updated: 2023/11/12 18:27:06 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS_FILES	=	main.c \
 				utils/render.c \
 				utils/error_handling.c \
 				utils/clear_and_free.c \
+				utils/window_changer.c \
 				\
 				user_input/input_hooks.c \
 				user_input/key_input.c \
@@ -70,8 +71,8 @@ MLX_PATH = $(MLX_DIR)/libmlx.a
 NAME		= so_long
 RM			= rm -f
 GCC			= gcc
-CFLAGS 		= -Wall -Wextra -Werror 
-CFLAGS		+= -fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror
+# CFLAGS		+= -fsanitize=address
 
 HEADER_FILE	= $(HEAD)/so_long.h
 
