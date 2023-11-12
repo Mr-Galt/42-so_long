@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/10 11:41:16 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/12 10:38:09 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,12 @@
 
 # define SCREEN_WIDTH	640
 # define SCREEN_HEIGHT	480
+
 # define SCREEN_NAME	"Martin's Game"
 
 # define OFFSET_S		1
-# define OFFSET_M		1.5
-# define OFFSET_L		2
-
-# define CAMERA_WIDTH	320
-# define CAMERA_HEIGHT	240
+# define OFFSET_M		2
+# define OFFSET_L		3
 
 /* ************************************************************************** */
 /* DEFINE KEYS                                                                */
@@ -101,7 +99,8 @@ typedef struct s_player
 typedef struct s_start_menu
 {	
 	int		startscreen_status;
-	void	*startscreen[5];
+	void	*startscreen_s[5];
+	void	*startscreen_m[5];
 	int		start_button[4];
 	int		start_options[4];
 	int		start_credits[4];
@@ -210,6 +209,7 @@ void 		coordinates_start_button(t_game *game);
 void 		coordinates_options_button(t_game *game);
 void 		coordinates_credits_button(t_game *game);
 void 		coordinates_exit_button(t_game *game);
+void 		init_startmenu_buttons(t_game *game);
 
 /* ************************************************************************** */
 /* FUNCTIONS - STATE MACHINE                                                  */
@@ -228,5 +228,6 @@ int			check_button_credit_menu(int x, int y, t_game *game);
 /* ************************************************************************** */
 
 int			put_a_string(t_game *game);
+void 		do_it(t_game *game);
 
 #endif

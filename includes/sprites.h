@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:15:53 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/10 11:49:17 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/12 10:13:29 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 /* DEFINE SPRITES                                                             */
 /* ************************************************************************** */
 
-# define STARTSCREEN_MENU		"./assets/menu/start_screen/startscreen_0.xpm"
-# define STARTSCREEN_START		"./assets/menu/start_screen/startscreen_1.xpm"
-# define STARTSCREEN_OPTIONS	"./assets/menu/start_screen/startscreen_2.xpm"
-# define STARTSCREEN_CREDITS	"./assets/menu/start_screen/startscreen_3.xpm"
-# define STARTSCREEN_EXIT		"./assets/menu/start_screen/startscreen_4.xpm"
+# define S_STARTSCREEN_MENU		"./assets/menu/start_screen/s/startscreen_s_0.xpm"
+# define S_STARTSCREEN_START	"./assets/menu/start_screen/s/startscreen_s_1.xpm"
+# define S_STARTSCREEN_OPTIONS	"./assets/menu/start_screen/s/startscreen_s_2.xpm"
+# define S_STARTSCREEN_CREDITS	"./assets/menu/start_screen/s/startscreen_s_3.xpm"
+# define S_STARTSCREEN_EXIT		"./assets/menu/start_screen/s/startscreen_s_4.xpm"
 
 # define CREDITSCREEN			"./assets/menu/credit_screen/creditscreen_0.xpm"
 # define CREDITSCREEN_BACK		"./assets/menu/credit_screen/creditscreen_1.xpm"
@@ -31,6 +31,18 @@
 # define OPTION_BUTTON_BACK_2	"./assets/menu/option_screen/option_button_back_1.xpm"
 
 # define PLAYER					"./assets/player/new.xpm"
+
+
+
+
+
+# define M_STARTSCREEN_MENU		"./assets/menu/start_screen/m/startscreen_m_0.xpm"
+# define M_STARTSCREEN_START	"./assets/menu/start_screen/m/startscreen_m_1.xpm"
+# define M_STARTSCREEN_OPTIONS	"./assets/menu/start_screen/m/startscreen_m_2.xpm"
+# define M_STARTSCREEN_CREDITS	"./assets/menu/start_screen/m/startscreen_m_3.xpm"
+# define M_STARTSCREEN_EXIT		"./assets/menu/start_screen/m/startscreen_m_4.xpm"
+
+
 
 /* ************************************************************************** */
 /* DEFINE LOADINGSCREEN & QUOTES                                              */

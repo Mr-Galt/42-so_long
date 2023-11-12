@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/11/09 11:37:15 by mheinke          ###   ########.fr        #
+#    Updated: 2023/11/12 08:34:33 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,11 @@ SRCS_FILES	=	main.c \
 				init/init_optionscreen.c \
 				init/init_creditscreen.c \
 				init/init_loadingscreen.c \
+				init/init_buttons_startscreen.c \
 				\
 				player/player_movement.c \
 				\
+				menu/startscreen.c \
 				menu/menu_start_screen.c \
 				menu/menu_buttons.c \
 				menu/menu_mouse_hover.c \

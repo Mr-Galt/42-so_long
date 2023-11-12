@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/09 10:55:02 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/12 10:35:57 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void game_status(t_game *game)
 	if (game->state == STATE_START_MENU)
 	{
 		startscreen(game);
+		//init_startmenu_buttons(game);
 	}
 	else if (game->state == STATE_OPTIONS)
 	{
@@ -62,6 +63,12 @@ int	game_loop(t_game *game)
 	return (1);
 }
 
+void do_it(t_game *game)
+{
+	input_hooks(game);
+	mlx_loop_hook(game->mlx, game_loop, game);
+}
+
 int	main(void)
 {
 	t_game	game;
@@ -70,7 +77,7 @@ int	main(void)
 	init_player(&game);
 	init_game_menu(&game);
 	init_loadingscreen(&game);
-	input_hooks(&game);
-	mlx_loop_hook(game.mlx, game_loop, &game);
+	do_it(&game);
+
 	mlx_loop(game.mlx);
 }
