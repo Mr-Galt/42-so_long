@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/12 12:14:38 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/13 15:18:07 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ int	main(void)
 	init_game_menu(&game);
 	init_loadingscreen(&game);
 	do_it(&game);
-
+	play_music(BACKGROUND_MUSIC, &game);
+	play_music(JUMP_SFX, &game);
+	play_music(JUMP_SFX, &game);
+	play_music(JUMP_SFX, &game);
+	play_music(JUMP_SFX, &game);
+	play_music(JUMP_SFX, &game);
 	mlx_loop(game.mlx);
 }

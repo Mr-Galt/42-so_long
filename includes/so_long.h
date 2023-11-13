@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/12 18:39:32 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/13 14:55:40 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@
 # include <fcntl.h>
 # include <stdlib.h> 
 # include <stdio.h>
+# include <string.h>
 
 /* ************************************************************************** */
 /* INTERNAL HEADERS                                                           */
 /* ************************************************************************** */
 
 # include "sprites.h"
+# include "music_and_sfx.h"
 
 /* ************************************************************************** */
 /* DEFINE SIZES                                                               */
@@ -95,6 +97,11 @@ typedef struct s_player
 	int		max_collect;
 }	t_player;
 
+typedef struct s_music
+{
+	char	background;
+	int		background_pid;
+} t_music;
 
 typedef struct s_start_menu
 {	
@@ -148,6 +155,7 @@ typedef struct s_game
 	t_start_menu	*start_menu;
 	t_loadingscreen	*loadingscreen;
 	t_player		*player;
+	t_music			*music;
 }	t_game;
 
 /* ************************************************************************** */
@@ -238,5 +246,7 @@ int			check_button_credit_menu(int x, int y, t_game *game);
 
 int			put_a_string(t_game *game);
 void 		do_it(t_game *game);
+int 		play_music(char* sfx, t_game *game);
+int    		stop_music(t_game *game);
 
 #endif
