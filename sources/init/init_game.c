@@ -6,12 +6,18 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:53:09 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/13 14:07:57 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/14 16:24:34 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 #include <stdio.h>
+
+void	randomiser(t_game *game)
+{
+	srand(time(NULL));
+	game->loadingscreen->random_screen = rand() % 5;
+}
 
 void callocs_for_game(t_game *game)
 {
@@ -31,4 +37,5 @@ void	init_game(t_game *game)
 	game->last_timestamp = 0;
 	game->win = mlx_new_window(game->mlx, game->screen_width * game->screen_size, game->screen_height * game->screen_size, SCREEN_NAME);
 	game->state = STATE_START_MENU;
+	randomiser(game);
 }

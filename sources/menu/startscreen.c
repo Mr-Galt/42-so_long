@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 08:30:34 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/12 10:35:52 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/14 16:06:25 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,20 @@ void	startscreen_m(t_game *game)
 	 	render_img(0, 0, game->start_menu->startscreen_m[4], game);
 }
 
+void	startscreen_l(t_game *game)
+{
+	if (game->start_menu->startscreen_status == 0)
+	 	render_img(0, 0, game->start_menu->startscreen_l[0], game);
+	else if (game->start_menu->startscreen_status == 1)
+	 	render_img(0, 0, game->start_menu->startscreen_l[1], game);
+	else if (game->start_menu->startscreen_status == 2)
+	 	render_img(0, 0, game->start_menu->startscreen_l[2], game);
+	else if (game->start_menu->startscreen_status == 3)
+	 	render_img(0, 0, game->start_menu->startscreen_l[3], game);
+	else if (game->start_menu->startscreen_status == 4)
+	 	render_img(0, 0, game->start_menu->startscreen_l[4], game);
+}
+
 void startscreen(t_game *game)
 {
 	if (game->screen_size == OFFSET_S)
@@ -47,6 +61,6 @@ void startscreen(t_game *game)
 	else if (game->screen_size == OFFSET_M)
 		startscreen_m(game);
 	else if (game->screen_size == OFFSET_L)
-		startscreen_s(game);
+		startscreen_l(game);
 	init_startmenu_buttons(game);
 }

@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:28:56 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/12 10:20:55 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/14 16:01:49 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,25 @@ void init_startscreen_m(t_game *game)
 	game->start_menu->startscreen_m[4] = mlx_xpm_file_to_image(game->mlx, M_STARTSCREEN_EXIT, &width, &height);
 }
 
+void init_startscreen_l(t_game *game)
+{
+	int width;
+	int height;
+
+	width = game->screen_width * OFFSET_L;
+	height = game->screen_height * OFFSET_L;
+	game->start_menu->startscreen_l[0] = mlx_xpm_file_to_image(game->mlx, L_STARTSCREEN_MENU, &width, &height);
+	game->start_menu->startscreen_l[1] = mlx_xpm_file_to_image(game->mlx, L_STARTSCREEN_START, &width, &height);
+	game->start_menu->startscreen_l[2] = mlx_xpm_file_to_image(game->mlx, L_STARTSCREEN_OPTIONS, &width, &height);
+	game->start_menu->startscreen_l[3] = mlx_xpm_file_to_image(game->mlx, L_STARTSCREEN_CREDITS, &width, &height);
+	game->start_menu->startscreen_l[4] = mlx_xpm_file_to_image(game->mlx, L_STARTSCREEN_EXIT, &width, &height);
+}
 
 void init_startscreen(t_game *game)
 {
 	init_startscreen_s(game);
 	init_startscreen_m(game);
+	init_startscreen_l(game);
 	init_startmenu_buttons(game);
 }
 

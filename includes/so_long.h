@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/13 14:55:40 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/14 16:15:33 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ typedef struct s_start_menu
 	int		startscreen_status;
 	void	*startscreen_s[5];
 	void	*startscreen_m[5];
+	void	*startscreen_l[5];
 	int		start_button[4];
 	int		start_options[4];
 	int		start_credits[4];
@@ -115,15 +116,21 @@ typedef struct s_start_menu
 
 	int		creditscreen_status;
 	void	*creditscreen_s[2];
+	void	*creditscreen_m[2];
+	void	*creditscreen_l[2];
 	int		credit_back[4];
 
 	int		optionscreen_status;
 	void	*optionscreen_s[2];
+	void	*optionscreen_m[2];
+	void	*optionscreen_l[2];
 	void	*optionscreen_button[2];
 	int		option_back[4];
 
 	int		option_screensize_status;
 	void	*option_screensize_s[3];
+	void	*option_screensize_m[3];
+	void	*option_screensize_l[3];
 	int		button_screensize_1[4];
 	int		button_screensize_2[4];
 	int		button_screensize_3[4];
@@ -131,8 +138,10 @@ typedef struct s_start_menu
 
 typedef struct s_loadingscreen
 {	
-	void	*screen;
-	void	*quote[5];
+	int		random_screen;
+	void	*screen_s[5];
+	void	*screen_m[5];
+	void	*screen_l[5];
 } t_loadingscreen;
 
 typedef struct s_game
@@ -225,6 +234,8 @@ void 		coordinates_options_button(t_game *game);
 void 		coordinates_credits_button(t_game *game);
 void 		coordinates_exit_button(t_game *game);
 void 		init_startmenu_buttons(t_game *game);
+void 		init_buttons_optionscreen(t_game *game);
+void 		coordinates_credit_back(t_game *game);
 
 /* ************************************************************************** */
 /* FUNCTIONS - STATE MACHINE                                                  */

@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:15:53 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/12 17:11:36 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/14 15:21:29 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@
 # define S_OPTION_1				"./assets/menu/option_screen/s/option_screensize_s_1.xpm"
 # define S_OPTION_2				"./assets/menu/option_screen/s/option_screensize_s_2.xpm"
 
-# define PLAYER					"./assets/player/new.xpm"
-
-
-
 /* ************************************************************************** */
 /* DEFINE M SPRITES                                                           */
 /* ************************************************************************** */
@@ -46,18 +42,60 @@
 # define M_STARTSCREEN_CREDITS	"./assets/menu/start_screen/m/startscreen_m_3.xpm"
 # define M_STARTSCREEN_EXIT		"./assets/menu/start_screen/m/startscreen_m_4.xpm"
 
+# define M_CREDITSCREEN_0		"./assets/menu/credit_screen/m/creditscreen_m_0.xpm"
+# define M_CREDITSCREEN_1		"./assets/menu/credit_screen/m/creditscreen_m_1.xpm"
 
+# define M_OPTIONSCREEN_0		"./assets/menu/option_screen/m/optionscreen_m_0.xpm"
+# define M_OPTIONSCREEN_1		"./assets/menu/option_screen/m/optionscreen_m_1.xpm"
+# define M_OPTION_0				"./assets/menu/option_screen/m/option_screensize_m_0.xpm"
+# define M_OPTION_1				"./assets/menu/option_screen/m/option_screensize_m_1.xpm"
+# define M_OPTION_2				"./assets/menu/option_screen/m/option_screensize_m_2.xpm"
+
+/* ************************************************************************** */
+/* DEFINE L SPRITES                                                           */
+/* ************************************************************************** */
+
+# define L_STARTSCREEN_MENU		"./assets/menu/start_screen/l/startscreen_l_0.xpm"
+# define L_STARTSCREEN_START	"./assets/menu/start_screen/l/startscreen_l_1.xpm"
+# define L_STARTSCREEN_OPTIONS	"./assets/menu/start_screen/l/startscreen_l_2.xpm"
+# define L_STARTSCREEN_CREDITS	"./assets/menu/start_screen/l/startscreen_l_3.xpm"
+# define L_STARTSCREEN_EXIT		"./assets/menu/start_screen/l/startscreen_l_4.xpm"
+
+# define L_CREDITSCREEN_0		"./assets/menu/credit_screen/l/creditscreen_l_0.xpm"
+# define L_CREDITSCREEN_1		"./assets/menu/credit_screen/l/creditscreen_l_1.xpm"
+
+# define L_OPTIONSCREEN_0		"./assets/menu/option_screen/l/optionscreen_l_0.xpm"
+# define L_OPTIONSCREEN_1		"./assets/menu/option_screen/l/optionscreen_l_1.xpm"
+# define L_OPTION_0				"./assets/menu/option_screen/l/option_screensize_l_0.xpm"
+# define L_OPTION_1				"./assets/menu/option_screen/l/option_screensize_l_1.xpm"
+# define L_OPTION_2				"./assets/menu/option_screen/l/option_screensize_l_2.xpm"
 
 /* ************************************************************************** */
 /* DEFINE LOADINGSCREEN & QUOTES                                              */
 /* ************************************************************************** */
 
-# define LOADINGSCREEN			"./assets/loadingscreen/loadingscreen.xpm"
+# define S_LOADINGSCREEN_0		"./assets/loadingscreen/s/loadingscreen_s_0.xpm"
+# define S_LOADINGSCREEN_1		"./assets/loadingscreen/s/loadingscreen_s_1.xpm"
+# define S_LOADINGSCREEN_2		"./assets/loadingscreen/s/loadingscreen_s_2.xpm"
+# define S_LOADINGSCREEN_3		"./assets/loadingscreen/s/loadingscreen_s_3.xpm"
+# define S_LOADINGSCREEN_4		"./assets/loadingscreen/s/loadingscreen_s_4.xpm"
 
-# define QUOTE_1				"./assets/loadingscreen/quote_1.xpm"
-# define QUOTE_2				"./assets/loadingscreen/quote_2.xpm"
-# define QUOTE_3				"./assets/loadingscreen/quote_3.xpm"
-# define QUOTE_4				"./assets/loadingscreen/quote_4.xpm"
-# define QUOTE_5				"./assets/loadingscreen/quote_5.xpm"
+# define M_LOADINGSCREEN_0		"./assets/loadingscreen/m/loadingscreen_m_0.xpm"
+# define M_LOADINGSCREEN_1		"./assets/loadingscreen/m/loadingscreen_m_1.xpm"
+# define M_LOADINGSCREEN_2		"./assets/loadingscreen/m/loadingscreen_m_2.xpm"
+# define M_LOADINGSCREEN_3		"./assets/loadingscreen/m/loadingscreen_m_3.xpm"
+# define M_LOADINGSCREEN_4		"./assets/loadingscreen/m/loadingscreen_m_4.xpm"
+
+# define L_LOADINGSCREEN_0		"./assets/loadingscreen/l/loadingscreen_l_0.xpm"
+# define L_LOADINGSCREEN_1		"./assets/loadingscreen/l/loadingscreen_l_1.xpm"
+# define L_LOADINGSCREEN_2		"./assets/loadingscreen/l/loadingscreen_l_2.xpm"
+# define L_LOADINGSCREEN_3		"./assets/loadingscreen/l/loadingscreen_l_3.xpm"
+# define L_LOADINGSCREEN_4		"./assets/loadingscreen/l/loadingscreen_l_4.xpm"
+
+/* ************************************************************************** */
+/* DEFINE PITTY LEFTOVERS                                                     */
+/* ************************************************************************** */
+
+# define PLAYER					"./assets/player/new.xpm"
 
 #endif
