@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/14 15:24:34 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/15 21:48:18 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void game_status(t_game *game)
 	{
 		mlx_destroy_window(game->mlx, game->win);
 //		kill_menu(game);
-		free_player(game);
-		free_structs(game);
+		destroy_player(game);
+		free_all_structs(game);
 		free(game->mlx);
 		exit (1);
 	}
@@ -77,11 +77,11 @@ int	main(void)
 	init_game_menu(&game);
 	init_loadingscreen(&game);
 	do_it(&game);
-//	play_music(BACKGROUND_MUSIC, &game);
-	play_music(JUMP_SFX, &game);
-	play_music(JUMP_SFX, &game);
-	play_music(JUMP_SFX, &game);
-	play_music(JUMP_SFX, &game);
-	play_music(JUMP_SFX, &game);
+	// play_music(BACKGROUND_MUSIC, &game);
+	// play_music(JUMP_SFX, &game);
+	// play_music(JUMP_SFX, &game);
+	// play_music(JUMP_SFX, &game);
+	// play_music(JUMP_SFX, &game);
+	// play_music(JUMP_SFX, &game);
 	mlx_loop(game.mlx);
 }

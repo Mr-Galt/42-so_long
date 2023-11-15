@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/14 16:15:33 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/15 21:35:04 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,8 +184,6 @@ void 		free_optionscreen(t_game *game);
 void 		creditscreen(t_game *game);
 void 		free_creditscreen(t_game *game);
 void		loadingscreen(t_game *game);
-void 		free_player(t_game *game);
-void 		free_structs(t_game *game);
 void		window_changer(t_game *game);
 
 /* ************************************************************************** */
@@ -225,6 +223,8 @@ void		init_loadingscreen(t_game *game);
 
 void		init_player(t_game *game);
 
+void 		init_buttons_optionscreen(t_game *game);
+
 /* ************************************************************************** */
 /* FUNCTIONS - MENU BUTTONS                                                   */
 /* ************************************************************************** */
@@ -250,6 +250,20 @@ int			check_button_start_menu(int x, int y, t_game *game);
 int			check_button_option_menu(int x, int y, t_game *game);
 int			check_button_screensize(int x, int y, t_game *game);
 int			check_button_credit_menu(int x, int y, t_game *game);
+
+/* ************************************************************************** */
+/* CLEANUP                                                                    */
+/* ************************************************************************** */
+
+void 		free_all_structs(t_game *game);
+
+void		destroy_startscreen(t_game *game);
+void		destroy_optionscreen(t_game *game);
+void		destroy_creditscreen(t_game *game);
+
+void		destroy_loadingscreen(t_game *game);
+
+void 		destroy_player(t_game *game);
 
 /* ************************************************************************** */
 /* TESTS                                                                      */

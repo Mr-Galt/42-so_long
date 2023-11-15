@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:28:46 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/12 18:04:19 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/15 20:23:46 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int	check_button_screensize(int x, int y, t_game *game)
 		return (3);
 	return (0);
 }
-
 
 int	check_button_credit_menu(int x, int y, t_game *game)
 {
