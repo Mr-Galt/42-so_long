@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/15 21:35:04 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/16 16:59:20 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,16 @@ typedef struct s_loadingscreen
 	void	*screen_l[5];
 } t_loadingscreen;
 
+typedef struct s_map
+{
+	char	**full;
+	int		rows;
+	int		columns;
+	int		collectibles;
+	int		players;
+	int		exits;
+} t_map;
+
 typedef struct s_game
 {
 	void			*mlx;
@@ -161,6 +171,7 @@ typedef struct s_game
 	long long		last_timestamp;
 	int				delta_fps;
 
+	t_map			*map;
 	t_start_menu	*start_menu;
 	t_loadingscreen	*loadingscreen;
 	t_player		*player;
@@ -264,6 +275,16 @@ void		destroy_creditscreen(t_game *game);
 void		destroy_loadingscreen(t_game *game);
 
 void 		destroy_player(t_game *game);
+
+
+
+
+/* ************************************************************************** */
+/* MAP                                                                        */
+/* ************************************************************************** */
+
+void		check_terminal_arguments(int argc, char **argv);
+void		read_map(t_game *game, char *argv);
 
 /* ************************************************************************** */
 /* TESTS                                                                      */

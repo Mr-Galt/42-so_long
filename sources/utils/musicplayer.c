@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:31:32 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/13 14:59:24 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/24 15:27:36 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int    stop_music(t_game *game)
     if (pid_str == NULL)
         return (0);
     char* killer = ft_strjoin("kill ", pid_str);
-        if (killer == NULL)
+    if (killer == NULL)
         free(pid_str);
     system(killer);
 

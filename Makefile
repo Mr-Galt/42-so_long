@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/11/15 21:16:29 by mheinke          ###   ########.fr        #
+#    Updated: 2023/11/27 08:08:54 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,10 @@ SRCS_DIR	= 	./sources
 
 SRCS_FILES	=	main.c \
 				\
+				map/check_arguments.c \
+				map/read_map.c \
+				map/check_map.c \
+				\
 				utils/delta_time.c \
 				utils/statemachine.c \
 				utils/render.c \
@@ -28,7 +32,7 @@ SRCS_FILES	=	main.c \
 				cleanup/destroy_optionscreen.c \
 				cleanup/destroy_creditscreen.c \
 				cleanup/destroy_startscreen.c \
-				cleanup/destroy_loadingscreen \
+				cleanup/destroy_loadingscreen.c \
 				cleanup/destroy_player.c \
 				cleanup/free_structs.c \
 				\
@@ -137,7 +141,7 @@ clean :
 	@$(RM) $(OBJS) error.txt
 	@echo ""
 	@echo "${YELLOW}$$HEADER"
-	@echo "$Removed: $(words $(OBJS)) object file(s) from so_long"
+	@echo "Removed: $(words $(OBJS)) object file(s) from so_long"
 
 fclean : clean
 	@$(RM) $(NAME)

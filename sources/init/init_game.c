@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:53:09 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/14 16:24:34 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/11/17 11:14:44 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void callocs_for_game(t_game *game)
 	game->start_menu = ft_calloc(sizeof(t_start_menu), 1);
 	game->loadingscreen = ft_calloc(sizeof(t_loadingscreen), 1);
 	game->music = ft_calloc(sizeof(t_music), 1);
+	game->map = ft_calloc(sizeof(t_map), 1);
 }
 
 void	init_game(t_game *game)
