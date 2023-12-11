@@ -5,6 +5,16 @@ RESET		= \033[0m
 GREEN		= \033[32m
 YELLOW		= \033[33m
 
+define HEADER
+███╗░░░███╗██╗░░░░░██╗░░██╗
+████╗░████║██║░░░░░╚██╗██╔╝
+██╔████╔██║██║░░░░░░╚███╔╝░
+██║╚██╔╝██║██║░░░░░░██╔██╗░
+██║░╚═╝░██║███████╗██╔╝╚██╗
+╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚═
+endef
+export HEADER
+
 NOM=libmlx.a
 SRC= mlx_shaders.c mlx_new_window.m mlx_init_loop.m mlx_new_image.m mlx_xpm.c mlx_int_str_to_wordtab.c
 SRC+= mlx_png.c mlx_mouse.m
@@ -25,12 +35,7 @@ $(NOM):	$(OBJ)
 	@ar -r -c $(NOM) $(OBJ)
 	@ranlib $(NOM)
 	@echo ""
-	@echo "$(GREEN)███╗░░░███╗██╗░░░░░██╗░░██╗"
-	@echo "████╗░████║██║░░░░░╚██╗██╔╝"
-	@echo "██╔████╔██║██║░░░░░░╚███╔╝░"
-	@echo "██║╚██╔╝██║██║░░░░░░██╔██╗░"
-	@echo "██║░╚═╝░██║███████╗██╔╝╚██╗"
-	@echo "╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚═╝"
+	@echo "$(GREEN)$$HEADER"
 	@echo "Created: $(words $(OBJ)) object file(s) for MLX"
 	@echo "Created: $(NOM)$(RESET)"
 
@@ -38,12 +43,7 @@ clean:
 	@rm -f $(NOM) $(OBJ) *~
 	@rm -f mlx_app
 	@echo ""
-	@echo "$(YELLOW)███╗░░░███╗██╗░░░░░██╗░░██╗"
-	@echo "████╗░████║██║░░░░░╚██╗██╔╝"
-	@echo "██╔████╔██║██║░░░░░░╚███╔╝░"
-	@echo "██║╚██╔╝██║██║░░░░░░██╔██╗░"
-	@echo "██║░╚═╝░██║███████╗██╔╝╚██╗"
-	@echo "╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚═╝"
+	@echo "$(YELLOW)$$HEADER"
 	@echo "Removed: $(words $(OBJ)) object file(s) from MLX"
 	@echo "Removed: $(NOM)$(RESET)"
 

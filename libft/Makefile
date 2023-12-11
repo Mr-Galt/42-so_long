@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 15:11:52 by mheinke           #+#    #+#              #
-#    Updated: 2023/11/06 14:44:21 by mheinke          ###   ########.fr        #
+#    Updated: 2023/12/11 08:52:56 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,6 +122,16 @@ GREEN		= \033[32m
 YELLOW		= \033[33m
 BLUE		= \033[34m
 
+define HEADER
+██╗░░░░░██╗██████╗░███████╗████████╗
+██║░░░░░██║██╔══██╗██╔════╝╚══██╔══╝
+██║░░░░░██║██████╦╝█████╗░░░░░██║░░░
+██║░░░░░██║██╔══██╗██╔══╝░░░░░██║░░░
+███████╗██║██████╦╝██║░░░░░░░░██║░░░
+╚══════╝╚═╝╚═════╝░╚═╝░░░░░░░░╚═╝░░░
+endef
+export HEADER
+
 # **************************************************************************** #
 # TARGETS                                   							   	   #
 # **************************************************************************** #
@@ -192,12 +202,7 @@ $(NAME): $(OBJS_CHECK) $(OBJS_GNL) $(OBJS_LIST) $(OBJS_MEMORY) $(OBJS_PRINTF) $(
 	@$(AR) $(NAME) $(OBJS_CHECK) $(OBJS_GNL) $(OBJS_LIST) $(OBJS_MEMORY) $(OBJS_PRINTF) $(OBJS_STRING)
 	@$(LIB) $(NAME)
 	@echo ""
-	@echo "$(GREEN)██╗░░░░░██╗██████╗░███████╗████████╗"
-	@echo "██║░░░░░██║██╔══██╗██╔════╝╚══██╔══╝"
-	@echo "██║░░░░░██║██████╦╝█████╗░░░░░██║░░░"
-	@echo "██║░░░░░██║██╔══██╗██╔══╝░░░░░██║░░░"
-	@echo "███████╗██║██████╦╝██║░░░░░░░░██║░░░"
-	@echo "╚══════╝╚═╝╚═════╝░╚═╝░░░░░░░░╚═╝░░░"
+	@echo "${GREEN}$$HEADER"
 	@echo "Created: $(words $(OBJS_CHECK) $(OBJS_GNL) $(OBJS_LIST) $(OBJS_MEMORY) $(OBJS_PRINTF) $(OBJS_STRING)) object file(s) for Libft"
 	@echo "Created: $(NAME)$(RESET)"
 
@@ -205,12 +210,7 @@ clean:
 	@$(RM) $(OBJS_CHECK) $(OBJS_GNL) $(OBJS_LIST) $(OBJS_MEMORY) $(OBJS_PRINTF) $(OBJS_STRING) error.txt
 	@$(RM) $(NAME)
 	@echo ""
-	@echo "$(YELLOW)██╗░░░░░██╗██████╗░███████╗████████╗"
-	@echo "██║░░░░░██║██╔══██╗██╔════╝╚══██╔══╝"
-	@echo "██║░░░░░██║██████╦╝█████╗░░░░░██║░░░"
-	@echo "██║░░░░░██║██╔══██╗██╔══╝░░░░░██║░░░"
-	@echo "███████╗██║██████╦╝██║░░░░░░░░██║░░░"
-	@echo "╚══════╝╚═╝╚═════╝░╚═╝░░░░░░░░╚═╝░░░"
+	@echo "$(YELLOW)$$HEADER"
 	@echo "Removed: $(words $(OBJS_CHECK) $(OBJS_GNL) $(OBJS_LIST) $(OBJS_MEMORY) $(OBJS_PRINTF) $(OBJS_STRING)) object file(s) from Libft"
 	@echo "Removed: $(NAME)$(RESET)"
 

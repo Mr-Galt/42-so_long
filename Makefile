@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/11/27 08:08:54 by mheinke          ###   ########.fr        #
+#    Updated: 2023/12/11 08:52:16 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -155,11 +155,11 @@ libft_make :
 mlx_make :
 	@make -C $(MLX_DIR)
 
-loop_example:
-	@i=0 ; \
-	while [ $$i -lt 10 ]; do \
-		printf "\rIteration $$i" ; \
-		sleep 1 ; \
-		i=$$((i + 1)) ; \
-	done
-	@printf "\n"
+# loop_example:
+# 	@i=0 ; \
+# 	while [ $$i -lt 10 ]; do \
+# 		printf "\rIteration $$i" ; \
+# 		sleep 1 ; \
+# 		i=$$((i + 1)) ; \
+# 	done
+# 	@printf "\n"
