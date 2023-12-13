@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:26:32 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/13 19:20:10 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/13 20:34:54 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	read_map(t_game *game, char *argv)
 		ft_printf("%s", line);
 		free(line);
 	}
+	ft_printf("\n");
 	ft_printf("\n");
 	close(fd);
 

@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/12 20:18:04 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/13 20:54:32 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # include <stdlib.h> 
 # include <stdio.h>
 # include <string.h>
+
+// #include <pthread.h>
 
 /* ************************************************************************** */
 /* INTERNAL HEADERS                                                           */
@@ -232,10 +234,10 @@ int 		player_move(int keycode, t_game *game);
 
 void		init_game(t_game *game);
 
-void 		init_game_menu(t_game*game);
-void 		init_startscreen(t_game *game);
-void 		init_creditscreen(t_game *game);
-void 		init_optionscreen(t_game *game);
+void 		init_game_menu(t_game*game, int size);
+void 		init_startscreen(t_game *game, int size);
+void 		init_creditscreen(t_game *game, int size);
+void 		init_optionscreen(t_game *game, int size);
 void		init_loadingscreen(t_game *game);
 
 void		init_player(t_game *game);

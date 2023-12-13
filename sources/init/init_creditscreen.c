@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:54:52 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/13 19:10:55 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/13 19:34:25 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,17 @@ void	init_creditscreen_l(t_game *game)
 	game->start_menu->creditscreen_l[1] = mlx_xpm_file_to_image(game->mlx, L_CREDITSCREEN_1, &width, &height);
 }
 
-void init_creditscreen(t_game *game)
+void init_creditscreen(t_game *game, int size)
 {
 	game->start_menu->creditscreen_status = 0;
-	game->start_menu->credit_alloc_flag = 1;
-	init_creditscreen_s(game);
-	init_creditscreen_m(game);
-	init_creditscreen_l(game);
+
+	if (size == 1)
+		init_creditscreen_s(game);
+	else if (size == 2)
+		init_creditscreen_m(game);
+	else if (size == 3)
+		init_creditscreen_l(game);
 	coordinates_credit_back(game);
+	
+	game->start_menu->credit_alloc_flag = 1;
 }

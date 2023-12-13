@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:12:51 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/14 16:11:59 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/13 19:29:03 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,10 @@ void creditscreen(t_game *game)
 	coordinates_credit_back(game);
 }
 
-void init_game_menu(t_game*game)
+void init_game_menu(t_game*game, int size)
 {
-	init_startscreen(game);
-	init_creditscreen(game);
-	init_optionscreen(game);
-	init_creditscreen(game);
+	init_startscreen(game, size);
+	init_creditscreen(game, size);
+	init_optionscreen(game, size);
+	init_creditscreen(game, size);
 }
