@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/13 08:14:20 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/13 19:21:32 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 	
+	clock_t start = clock();
+	
 	check_terminal_arguments(argc, argv);
 	read_map(&game, argv[1]);
 	// (void)argv, (void)argc;
@@ -80,6 +82,11 @@ int	main(int argc, char **argv)
 	init_player(&game);
 	init_game_menu(&game);
 	init_loadingscreen(&game);
+
+	clock_t end = clock();
+	double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+	printf("Time taken for game ready: %f seconds\n", time_taken);
+	
 	do_it(&game);
 	// play_music(BACKGROUND_MUSIC, &game);
 	// play_music(JUMP_SFX, &game);

@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:26:32 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/17 11:18:03 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/13 19:20:10 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,25 @@ void	read_map(t_game *game, char *argv)
 	int		fd;
 	char	*line;
 	(void)game;
+	
+	clock_t start = clock();
+
 	fd = open(argv, O_RDONLY);
 	if (fd == -1)
 		ft_printf("Coulnd't open the map file.\n");
 //	game->map->rows = 0;
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		printf("%s", line);
+		ft_printf("%s", line);
 		free(line);
 	}
+	ft_printf("\n");
 	close(fd);
+
+	clock_t end = clock();
+	double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+
+	printf("Time taken for map: %f seconds\n", time_taken);
 }
 
 // void	read_map(t_game *game, char *argv)

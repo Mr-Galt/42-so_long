@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:28:56 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/12 20:11:19 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/13 19:16:12 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,37 @@ void init_startscreen_l(t_game *game)
 	game->start_menu->startscreen_l[4] = mlx_xpm_file_to_image(game->mlx, L_STARTSCREEN_EXIT, &width, &height);
 }
 
+// void init_startscreen(t_game *game)
+// {
+// 	init_startscreen_s(game);
+// 	init_startscreen_m(game);
+// 	init_startscreen_l(game);
+// 	init_startmenu_buttons(game);
+// 	game->start_menu->start_alloc_flag = 1;
+// }
+
 void init_startscreen(t_game *game)
 {
+	clock_t start_s = clock();
 	init_startscreen_s(game);
+	clock_t end_s = clock();
+
+	clock_t start_m = clock();
 	init_startscreen_m(game);
+	clock_t end_m = clock();
+
+	clock_t start_l = clock();
 	init_startscreen_l(game);
+	clock_t end_l = clock();
+
+	double time_s = ((double)(end_s - start_s)) / CLOCKS_PER_SEC;
+	double time_m = ((double)(end_m - start_m)) / CLOCKS_PER_SEC;
+	double time_l = ((double)(end_l - start_l)) / CLOCKS_PER_SEC;
+
+	printf("Time S: %f seconds\n", time_s);
+	printf("Time M: %f seconds\n", time_m);
+	printf("Time L: %f seconds\n", time_l);
+	
 	init_startmenu_buttons(game);
 	game->start_menu->start_alloc_flag = 1;
 }
-

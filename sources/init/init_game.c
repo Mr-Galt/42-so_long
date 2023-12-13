@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:53:09 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/17 11:14:44 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/13 19:18:24 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,17 @@ void	randomiser(t_game *game)
 
 void callocs_for_game(t_game *game)
 {
-	game->player = ft_calloc(sizeof(t_player), 1);
-	game->start_menu = ft_calloc(sizeof(t_start_menu), 1);
-	game->loadingscreen = ft_calloc(sizeof(t_loadingscreen), 1);
-	game->music = ft_calloc(sizeof(t_music), 1);
-	game->map = ft_calloc(sizeof(t_map), 1);
+	clock_t start = clock();
+	
+	game->player = ft_calloc(1, sizeof(t_player));
+	game->start_menu = ft_calloc(1, sizeof(t_start_menu));
+	game->loadingscreen = ft_calloc(1, sizeof(t_loadingscreen));
+	game->music = ft_calloc(1, sizeof(t_music));
+	game->map = ft_calloc(1, sizeof(t_map));
+
+	clock_t end = clock();
+	double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+	printf("Time taken for calloc: %f seconds\n", time_taken);
 }
 
 void	init_game(t_game *game)
