@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:15:53 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/14 15:21:29 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/12 20:29:25 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SPRITES_H
 
 /* ************************************************************************** */
-/* DEFINE S SPRITES                                                           */
+/* DEFINE MENU S SPRITES                                                      */
 /* ************************************************************************** */
 
 # define S_STARTSCREEN_MENU		"./assets/menu/start_screen/s/startscreen_s_0.xpm"
@@ -33,7 +33,7 @@
 # define S_OPTION_2				"./assets/menu/option_screen/s/option_screensize_s_2.xpm"
 
 /* ************************************************************************** */
-/* DEFINE M SPRITES                                                           */
+/* DEFINE MENU M SPRITES                                                      */
 /* ************************************************************************** */
 
 # define M_STARTSCREEN_MENU		"./assets/menu/start_screen/m/startscreen_m_0.xpm"
@@ -52,7 +52,7 @@
 # define M_OPTION_2				"./assets/menu/option_screen/m/option_screensize_m_2.xpm"
 
 /* ************************************************************************** */
-/* DEFINE L SPRITES                                                           */
+/* DEFINE MENU L SPRITES                                                      */
 /* ************************************************************************** */
 
 # define L_STARTSCREEN_MENU		"./assets/menu/start_screen/l/startscreen_l_0.xpm"

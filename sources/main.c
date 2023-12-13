@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/17 11:16:45 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/13 08:14:20 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void game_status(t_game *game)
 		mlx_destroy_window(game->mlx, game->win);
 //		kill_menu(game);
 		// destroy_player(game);
-		// free_all_structs(game);
-		// free(game->mlx);
+		destroy_all_images(game);
+		free_all_structs(game);
 		exit (1);
 	}
 }
@@ -72,9 +72,9 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 	
-	// check_terminal_arguments(argc, argv);
-	// read_map(&game, argv[1]);
-	(void)argv, (void)argc;
+	check_terminal_arguments(argc, argv);
+	read_map(&game, argv[1]);
+	// (void)argv, (void)argc;
 
 	init_game(&game);
 	init_player(&game);

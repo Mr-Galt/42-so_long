@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:54:48 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/15 20:19:43 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/12 20:10:57 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,5 @@ void init_optionscreen(t_game *game)
 	init_buttons_optionscreen(game);
 
 	game->start_menu->option_screensize_status = 1;
+	game->start_menu->option_alloc_flag = 1;
 }

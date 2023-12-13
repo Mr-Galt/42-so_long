@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 21:07:10 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/15 21:14:11 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/12 20:13:04 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ static void	destroy_loadingscreen_l(t_game *game)
 
 void	destroy_loadingscreen(t_game *game)
 {
-	destroy_loadingscreen_s(game);
-	destroy_loadingscreen_m(game);
-	destroy_loadingscreen_l(game);
+	if (game->loadingscreen->loading_alloc_flag == 1)
+	{
+		destroy_loadingscreen_s(game);
+		destroy_loadingscreen_m(game);
+		destroy_loadingscreen_l(game);
+	}
 }

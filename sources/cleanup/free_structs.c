@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 21:14:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/17 11:18:35 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/13 08:26:03 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void free_all_structs(t_game *game)
 	free(game->loadingscreen);
 	free(game->player);
 	free(game->music);
-	free(game);
+//	free(game);
 }

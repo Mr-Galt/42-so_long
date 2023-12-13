@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/12/11 08:52:16 by mheinke          ###   ########.fr        #
+#    Updated: 2023/12/12 20:20:45 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS_FILES	=	main.c \
 				cleanup/destroy_loadingscreen.c \
 				cleanup/destroy_player.c \
 				cleanup/free_structs.c \
+				cleanup/destroy_all_images.c \
 				\
 				user_input/input_hooks.c \
 				user_input/key_input.c \
@@ -155,11 +156,4 @@ libft_make :
 mlx_make :
 	@make -C $(MLX_DIR)
 
-# loop_example:
-# 	@i=0 ; \
-# 	while [ $$i -lt 10 ]; do \
-# 		printf "\rIteration $$i" ; \
-# 		sleep 1 ; \
-# 		i=$$((i + 1)) ; \
-# 	done
-# 	@printf "\n"
+.PHONY: all clean fclean re libft_make mlx_make

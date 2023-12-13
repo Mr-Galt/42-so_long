@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:54:52 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/14 16:10:55 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/12 20:09:41 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	init_creditscreen_l(t_game *game)
 void init_creditscreen(t_game *game)
 {
 	game->start_menu->creditscreen_status = 0;
+	game->start_menu->credit_alloc_flag = 1;
 	init_creditscreen_s(game);
 	init_creditscreen_m(game);
 	init_creditscreen_l(game);

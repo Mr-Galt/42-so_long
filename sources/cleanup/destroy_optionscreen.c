@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_option.c                                   :+:      :+:    :+:   */
+/*   destroy_optionscreen.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 20:39:44 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/15 20:50:24 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/12 20:13:38 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ static void	destroy_option_l(t_game *game)
 
 void	destroy_optionscreen(t_game *game)
 {
-	destroy_option_s(game);
-	destroy_option_m(game);
-	destroy_option_l(game);
+	if (game->start_menu->option_alloc_flag == 1)
+	{
+		destroy_option_s(game);
+		destroy_option_m(game);
+		destroy_option_l(game);
+	}
 }

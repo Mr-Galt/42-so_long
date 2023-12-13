@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 12:28:56 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/14 16:01:49 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/12 20:11:19 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void init_startscreen(t_game *game)
 	init_startscreen_m(game);
 	init_startscreen_l(game);
 	init_startmenu_buttons(game);
+	game->start_menu->start_alloc_flag = 1;
 }
 

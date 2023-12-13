@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/16 16:59:20 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/12 20:18:04 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,13 +112,15 @@ typedef struct s_start_menu
 	int		start_button[4];
 	int		start_options[4];
 	int		start_credits[4];
-	int		start_exit[4];	
+	int		start_exit[4];
+	int		start_alloc_flag;	
 
 	int		creditscreen_status;
 	void	*creditscreen_s[2];
 	void	*creditscreen_m[2];
 	void	*creditscreen_l[2];
 	int		credit_back[4];
+	int		credit_alloc_flag;
 
 	int		optionscreen_status;
 	void	*optionscreen_s[2];
@@ -126,6 +128,7 @@ typedef struct s_start_menu
 	void	*optionscreen_l[2];
 	void	*optionscreen_button[2];
 	int		option_back[4];
+	int		option_alloc_flag;
 
 	int		option_screensize_status;
 	void	*option_screensize_s[3];
@@ -142,6 +145,7 @@ typedef struct s_loadingscreen
 	void	*screen_s[5];
 	void	*screen_m[5];
 	void	*screen_l[5];
+	int		loading_alloc_flag;
 } t_loadingscreen;
 
 typedef struct s_map
@@ -151,7 +155,9 @@ typedef struct s_map
 	int		columns;
 	int		collectibles;
 	int		players;
+	int		enemies;
 	int		exits;
+	int		map_alloc_flag;
 } t_map;
 
 typedef struct s_game
@@ -267,6 +273,7 @@ int			check_button_credit_menu(int x, int y, t_game *game);
 /* ************************************************************************** */
 
 void 		free_all_structs(t_game *game);
+void 		destroy_all_images(t_game *game);
 
 void		destroy_startscreen(t_game *game);
 void		destroy_optionscreen(t_game *game);

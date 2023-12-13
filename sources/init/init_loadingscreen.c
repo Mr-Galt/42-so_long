@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:31:11 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/14 16:24:03 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/12 20:10:27 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,5 @@ void	init_loadingscreen(t_game *game)
 	init_loadingscreen_s(game);
 	init_loadingscreen_m(game);
 	init_loadingscreen_l(game);
+	game->loadingscreen->loading_alloc_flag = 1;
 }

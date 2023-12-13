@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_startmenu.c                                :+:      :+:    :+:   */
+/*   destroy_startscreen.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 20:39:44 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/15 21:02:51 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/12 20:14:09 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ static void	destroy_startscreen_l(t_game *game)
 
 void	destroy_startscreen(t_game *game)
 {
-	destroy_startscreen_s(game);
-	destroy_startscreen_m(game);
-	destroy_startscreen_l(game);
+	if (game->start_menu->start_alloc_flag == 1)
+	{
+		destroy_startscreen_s(game);
+		destroy_startscreen_m(game);
+		destroy_startscreen_l(game);
+	}
 }
