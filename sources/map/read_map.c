@@ -6,90 +6,75 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:26:32 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/13 20:34:54 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/14 19:45:49 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-// static void	empty_spaces_on_map(char *map)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (map[0] == '\n')
-// 	{
-// 		free(map);
-// 		error("Invalid map. The map have an empty line right at the beginning.");
-// 	}
-// 	else if (map[ft_strlen(map) - 1] == '\n')
-// 	{
-// 		free (map);
-// 		error("Invalid map. The map have an empty line at the end.");
-// 	}
-// 	while (map[i + 1])
-// 	{
-// 		if (map[i] == '\n' && map[i + 1] == '\n')
-// 		{
-// 			free(map);
-// 			error("Invalid map. The map have an empty line at the middle.");
-// 		}
-// 		i++;
-// 	}
-// }
-
-
 void	read_map(t_game *game, char *argv)
 {
 	int		fd;
 	char	*line;
-	(void)game;
-	
-	clock_t start = clock();
+	t_list	*map_list;
+	t_list	*map_line;
+
+	map_list = NULL;
+	map_line = NULL;
 
 	fd = open(argv, O_RDONLY);
-	if (fd == -1)
-		ft_printf("Coulnd't open the map file.\n");
-//	game->map->rows = 0;
-	while ((line = get_next_line(fd)) != NULL)
+	if (fd < 0)
+		error("Coulnd't open the map file.\n");
+	
+	line = get_next_line(fd);
+	if (line == NULL)
 	{
-		ft_printf("%s", line);
-		free(line);
+		ft_printf("Invalid map. The map is empty.\n");
+		close (fd);
+		exit (1);
 	}
-	ft_printf("\n");
-	ft_printf("\n");
+	
+	game->map = ft_calloc(1, sizeof(t_map));
+	if (game->map == NULL)
+		error("Couldn't allocate memory for the map.\n");
+	
+	while (line != NULL)
+	{
+		game->map->string = ft_strjoin(game->map->string, line);
+		map_line = ft_lstnew(line);
+		ft_lstadd_back(&map_list, map_line);
+		line = get_next_line(fd);
+	}
+	free(line);
 	close(fd);
+	
+	
+	game->map->rows = ft_lstsize(map_list);
+	game->map->columns = ft_strlen(map_list->content) - 1;
 
-	clock_t end = clock();
-	double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-	printf("Time taken for map: %f seconds\n", time_taken);
+	game->map->full = ft_calloc(game->map->rows, sizeof(char *));
+	if (game->map->full == NULL)
+		error("Error\nMemory allocation for rows failed.");
+	ft_printf("Row Allocation done.\n");
+
+	int i = 0;
+	while (i < game->map->rows)
+	{
+		game->map->full[i] = ft_calloc(game->map->columns, sizeof(char));
+		if (game->map->full[i] == NULL)
+			error("Error\nMemory allocation for columns failed.");
+		i++;
+	}
+	ft_printf("Columns Allocation done.\n");
+	
+	while (map_list)
+	{
+		ft_printf("%s", map_list->content);
+		map_list = map_list->next;
+	}
+	
+	ft_printf("\n");
+	ft_printf("Rows: %d\tColums: %d", game->map->rows, game->map->columns);
+	ft_printf("\n");
 }
-
-// void	read_map(t_game *game, char *argv)
-// {
-// 	char 	*temp_map;
-// 	char	*temp_line;
-// 	int		fd_map;
-
-// 	fd_map = open(argv, O_RDONLY);
-// 	if (fd_map == -1)
-// 		error("Couldn't open the map file.");
-// 	printf("open done\n"); fflush(stdout);
-// 	temp_map = NULL;
-// 	temp_line = NULL;
-// 	printf("temp_map done\n"); fflush(stdout);
-// 	game->map->rows = 0;
-// 	printf("rows = 0\n"); fflush(stdout);
-// 	while ((temp_line = get_next_line(fd_map)) != NULL)
-// 	{
-// 	//	temp_map = function for putting the lines into one big array
-// 		printf("%s\n", temp_line);
-// 		free(temp_line);
-// 	//	game->map->rows++;
-// 	}
-// 	close (fd_map);
-// 	empty_spaces_on_map(temp_map);
-// //	game->map->full = ft_split(temp_map, '\n');
-// 	free(temp_map);
-// }

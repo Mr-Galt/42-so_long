@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/14 10:52:14 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/14 19:38:54 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void game_status(t_game *game)
 	}
 	else if (game->state == STATE_GAME)
 	{
-		render_img(game->player->player_pos_x, game->player->player_pos_y, game->player->idle, game);
+		render_img(game->player->position[0], game->player->position[1], game->player->idle, game);
 	}
 	else if (game->state == STATE_EXIT)
 	{
@@ -65,17 +65,6 @@ void do_it(t_game *game)
 	input_hooks(game);
 	mlx_loop_hook(game->mlx, game_loop, game);
 }
-
-// typedef struct {
-// t_game *game;
-// int size;
-// } thread_data_t;
-
-// void *init_game_menu_thread(void *arg) {
-//     thread_data_t *data = (thread_data_t *)arg;
-//     init_game_menu(data->game, data->size);
-//     return NULL;
-// }
 
 int	main(int argc, char **argv)
 {
@@ -111,33 +100,6 @@ int	main(int argc, char **argv)
 	clock_t end2 = clock();
 	double time_taken2 = ((double)(end2 - start2)) / CLOCKS_PER_SEC;
 	printf("Time taken for leftover alloc: %f seconds\n", time_taken2);
-	
-// With Threading
-// Size: 3
-// Size: 2
-// Time M: 0.079592 seconds
-// Time L: 0.178622 seconds
-// Time taken for leftover alloc: 0.286255 seconds
-// Threading OVERHEAD?
-	
-	// clock_t start2 = clock();
-
-	// pthread_t thread1, thread2;
-    // thread_data_t data1, data2;
-	// data1.game = &game;
-    // data1.size = 2;
-    // data2.game = &game;
-    // data2.size = 3;
-    // pthread_create(&thread2, NULL, init_game_menu_thread, (void *)&data2);
-	// pthread_create(&thread1, NULL, init_game_menu_thread, (void *)&data1);
-	// pthread_join(thread2, NULL);
-	// pthread_join(thread1, NULL);
-
-	// clock_t end2 = clock();
-	// double time_taken2 = ((double)(end2 - start2)) / CLOCKS_PER_SEC;
-	// printf("Time taken for leftover alloc: %f seconds\n", time_taken2);
-	
-// Threading ends here	
 
 	// play_music(BACKGROUND_MUSIC, &game);
 	// play_music(JUMP_SFX, &game);

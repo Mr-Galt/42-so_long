@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/14 10:11:21 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/14 18:26:19 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,13 @@ typedef struct s_player
 	int		score;
 	int		img_width;
 	int		img_height;
-	int		player_pos_x;
-	int		player_pos_y;
+	int		position[2];
+	int		last_position[2];
+	int		jumping;
+	int		is_on_ground;
+	int		action_key[3];
+
+
 	void	*idle;
 	int		current_collect;
 	int		max_collect;
@@ -135,6 +140,7 @@ typedef struct s_loadingscreen
 
 typedef struct s_map
 {
+	char	*string;
 	char	**full;
 	int		rows;
 	int		columns;
