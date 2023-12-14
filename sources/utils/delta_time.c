@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:48:49 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/04 16:54:53 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/14 10:21:53 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 long long	delta_time(void)
 {
 	struct timeval	timeval;
-	long long delta;
-	
+	long long		delta;
+
 	gettimeofday(&timeval, NULL);
 	delta = timeval.tv_sec * 1000LL + timeval.tv_usec / 1000;
 	return (delta);

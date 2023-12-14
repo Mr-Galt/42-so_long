@@ -6,13 +6,13 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:09:04 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/01 13:17:43 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/14 10:45:17 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int player_move(int keycode, t_game *game)
+int	player_move(int keycode, t_game *game)
 {
 	if (keycode == 2)
 		game->player->player_pos_x += 1;
@@ -22,5 +22,5 @@ int player_move(int keycode, t_game *game)
 		game->player->player_pos_y += 1;
 	if (keycode == 13)
 		game->player->player_pos_y -= 1;
-	return (0);	
+	return (0);
 }

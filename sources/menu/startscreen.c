@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 08:30:34 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/14 16:06:25 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/14 15:20:44 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,46 +15,46 @@
 void	startscreen_s(t_game *game)
 {
 	if (game->start_menu->startscreen_status == 0)
-	 	render_img(0, 0, game->start_menu->startscreen_s[0], game);
+		render_img(0, 0, game->start_menu->startscreen_s[0], game);
 	else if (game->start_menu->startscreen_status == 1)
-	 	render_img(0, 0, game->start_menu->startscreen_s[1], game);
+		render_img(0, 0, game->start_menu->startscreen_s[1], game);
 	else if (game->start_menu->startscreen_status == 2)
-	 	render_img(0, 0, game->start_menu->startscreen_s[2], game);
+		render_img(0, 0, game->start_menu->startscreen_s[2], game);
 	else if (game->start_menu->startscreen_status == 3)
-	 	render_img(0, 0, game->start_menu->startscreen_s[3], game);
+		render_img(0, 0, game->start_menu->startscreen_s[3], game);
 	else if (game->start_menu->startscreen_status == 4)
-	 	render_img(0, 0, game->start_menu->startscreen_s[4], game);
+		render_img(0, 0, game->start_menu->startscreen_s[4], game);
 }
 
 void	startscreen_m(t_game *game)
 {
 	if (game->start_menu->startscreen_status == 0)
-	 	render_img(0, 0, game->start_menu->startscreen_m[0], game);
+		render_img(0, 0, game->start_menu->startscreen_m[0], game);
 	else if (game->start_menu->startscreen_status == 1)
-	 	render_img(0, 0, game->start_menu->startscreen_m[1], game);
+		render_img(0, 0, game->start_menu->startscreen_m[1], game);
 	else if (game->start_menu->startscreen_status == 2)
-	 	render_img(0, 0, game->start_menu->startscreen_m[2], game);
+		render_img(0, 0, game->start_menu->startscreen_m[2], game);
 	else if (game->start_menu->startscreen_status == 3)
-	 	render_img(0, 0, game->start_menu->startscreen_m[3], game);
+		render_img(0, 0, game->start_menu->startscreen_m[3], game);
 	else if (game->start_menu->startscreen_status == 4)
-	 	render_img(0, 0, game->start_menu->startscreen_m[4], game);
+		render_img(0, 0, game->start_menu->startscreen_m[4], game);
 }
 
 void	startscreen_l(t_game *game)
 {
 	if (game->start_menu->startscreen_status == 0)
-	 	render_img(0, 0, game->start_menu->startscreen_l[0], game);
+		render_img(0, 0, game->start_menu->startscreen_l[0], game);
 	else if (game->start_menu->startscreen_status == 1)
-	 	render_img(0, 0, game->start_menu->startscreen_l[1], game);
+		render_img(0, 0, game->start_menu->startscreen_l[1], game);
 	else if (game->start_menu->startscreen_status == 2)
-	 	render_img(0, 0, game->start_menu->startscreen_l[2], game);
+		render_img(0, 0, game->start_menu->startscreen_l[2], game);
 	else if (game->start_menu->startscreen_status == 3)
-	 	render_img(0, 0, game->start_menu->startscreen_l[3], game);
+		render_img(0, 0, game->start_menu->startscreen_l[3], game);
 	else if (game->start_menu->startscreen_status == 4)
-	 	render_img(0, 0, game->start_menu->startscreen_l[4], game);
+		render_img(0, 0, game->start_menu->startscreen_l[4], game);
 }
 
-void startscreen(t_game *game)
+void	startscreen(t_game *game)
 {
 	if (game->screen_size == OFFSET_S)
 		startscreen_s(game);

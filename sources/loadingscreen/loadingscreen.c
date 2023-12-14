@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:08:47 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/14 16:20:35 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/14 16:29:18 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	loadingscreen_l(t_game *game, int i)
 	render_img(0, 0, game->loadingscreen->screen_l[i], game);
 }
 
-void loadingscreen(t_game *game)
+void	loadingscreen(t_game *game)
 {
 	if (game->screen_size == OFFSET_S)
 		loadingscreen_s(game, game->loadingscreen->random_screen);

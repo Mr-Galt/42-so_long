@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/13 20:54:25 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/14 10:52:14 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,11 +139,11 @@ int	main(int argc, char **argv)
 	
 // Threading ends here	
 
-	mlx_loop(game.mlx);
 	// play_music(BACKGROUND_MUSIC, &game);
 	// play_music(JUMP_SFX, &game);
 	// play_music(JUMP_SFX, &game);
 	// play_music(JUMP_SFX, &game);
 	// play_music(JUMP_SFX, &game);
 	// play_music(JUMP_SFX, &game);
+	mlx_loop(game.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/14 08:17:57 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/14 10:11:21 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ typedef struct s_game
 long long	delta_time(void);
 void		show_fps(t_game *game);
 void		calculate_fps(t_game *game);
-void		render_img(int x, int y, void *sprite, t_game *game);
+int			render_img(int x, int y, void *sprite, t_game *game);
 void		error(char *str);
 
 void 		startscreen(t_game *game);

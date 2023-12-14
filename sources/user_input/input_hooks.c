@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:33:15 by mheinke           #+#    #+#             */
-/*   Updated: 2023/11/08 14:25:42 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/14 10:44:55 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	mouse_register_startmenu(t_game *game)
 void	key_register_startmenu(t_game *game)
 {
 	mlx_hook(game->win, 2, 0, keydown, game);
-	mlx_key_hook(game->win, keyup, game);	
+	mlx_key_hook(game->win, keyup, game);
 }
 
 void	input_hooks(t_game *game)
 {
-		mouse_register_startmenu(game);
-		key_register_startmenu(game);
+	mouse_register_startmenu(game);
+	key_register_startmenu(game);
 }
