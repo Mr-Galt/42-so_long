@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/14 18:26:19 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/15 06:24:29 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <stdlib.h> 
 # include <stdio.h>
 # include <string.h>
+# include <stdbool.h>
 
 // #include <pthread.h>
 
@@ -148,7 +149,6 @@ typedef struct s_map
 	int		players;
 	int		enemies;
 	int		exits;
-	int		map_alloc_flag;
 } t_map;
 
 typedef struct s_game
@@ -159,6 +159,8 @@ typedef struct s_game
 	int				screen_width;
 	int				screen_height;
 	int				screen_size;
+
+	int				map_fd;
 
 	int				state;
 
@@ -264,6 +266,7 @@ int			check_button_credit_menu(int x, int y, t_game *game);
 /* ************************************************************************** */
 
 void 		free_all_structs(t_game *game);
+void		free_map_array(t_game *game, int allocated_rows);
 void 		destroy_all_images(t_game *game);
 
 void		destroy_startscreen(t_game *game);
@@ -283,6 +286,7 @@ void 		destroy_player(t_game *game);
 
 void		check_terminal_arguments(int argc, char **argv);
 void		read_map(t_game *game, char *argv);
+void		map_calloc(t_game *game, int memory_step);
 
 /* ************************************************************************** */
 /* TESTS                                                                      */

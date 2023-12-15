@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/14 19:38:54 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/15 06:32:53 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void game_status(t_game *game)
 	{
 		mlx_destroy_window(game->mlx, game->win);
 		destroy_all_images(game);
+		free_map_array(game, game->map->rows);
 		free_all_structs(game);
 		exit (1);
 	}

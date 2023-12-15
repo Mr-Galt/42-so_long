@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/12/14 16:04:27 by mheinke          ###   ########.fr        #
+#    Updated: 2023/12/15 06:24:57 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS_FILES	=	main.c \
 				map/check_arguments.c \
 				map/read_map.c \
 				map/check_map.c \
+				map/calloc_map.c \
 				\
 				utils/delta_time.c \
 				utils/statemachine.c \
@@ -36,6 +37,7 @@ SRCS_FILES	=	main.c \
 				cleanup/destroy_player.c \
 				cleanup/free_structs.c \
 				cleanup/destroy_all_images.c \
+				cleanup/destroy_map.c \
 				\
 				user_input/input_hooks.c \
 				user_input/key_input.c \
