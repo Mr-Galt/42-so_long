@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/18 06:53:21 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/18 21:31:29 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,12 +154,15 @@ typedef struct s_map
 {
 	char	*string;
 	char	**full;
+	char 	**copy;
 	int		rows;
 	int		columns;
 	int		collectibles;
 	int		players;
 	int		enemies;
 	int		exits;
+	int		player_x;
+	int		player_y;
 } t_map;
 
 typedef struct s_game
@@ -278,6 +281,8 @@ int			check_button_credit_menu(int x, int y, t_game *game);
 
 void 		free_all_structs(t_game *game);
 void		free_map_array(t_game *game, int allocated_rows);
+void		free_map_copy(t_game *game, int allocated_rows);
+void		free_map_list(t_list *map_list);
 void 		destroy_all_images(t_game *game);
 
 void		destroy_startscreen(t_game *game);
@@ -300,6 +305,8 @@ void		read_map(t_game *game, char *argv);
 void		map_calloc(t_game *game, int memory_step);
 void		debug_map(t_game *game);
 void		check_whole_map(t_game *game);
+void		exit_map_failure(t_game *game, char *message);
+void		check_valid_path(t_game *game);
 
 /* ************************************************************************** */
 /* TESTS                                                                      */

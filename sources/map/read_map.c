@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:26:32 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/18 07:52:48 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/18 21:14:10 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ void	read_map(t_game *game, char *argv)
 	map_calloc(game, 2);
 	map_to_array(map_list, game);
 	check_whole_map(game);
+	check_valid_path(game);
 	debug_map(game);
 }

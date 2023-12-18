@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/12/18 06:38:12 by mheinke          ###   ########.fr        #
+#    Updated: 2023/12/18 20:58:22 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ SRCS_FILES	=	main.c \
 				map/check_map.c \
 				map/calloc_map.c \
 				map/debug_map.c \
+				map/exit_map.c \
+				map/pathfinding.c \
 				\
 				utils/delta_time.c \
 				utils/statemachine.c \
