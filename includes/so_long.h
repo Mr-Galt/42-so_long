@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/15 06:24:29 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/18 06:53:21 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,17 @@
 # define OFFSET_S		1
 # define OFFSET_M		2
 # define OFFSET_L		3
+
+/* ************************************************************************** */
+/* DEFINE MAP	                                                              */
+/* ************************************************************************** */
+
+# define WALL		'1'
+# define SPAWN		'P'
+# define COLLECT	'C'
+# define EXIT		'E'
+# define ENEMY		'X'
+# define FLOOR		'0'
 
 /* ************************************************************************** */
 /* DEFINE GAME STATUS                                                         */
@@ -287,6 +298,8 @@ void 		destroy_player(t_game *game);
 void		check_terminal_arguments(int argc, char **argv);
 void		read_map(t_game *game, char *argv);
 void		map_calloc(t_game *game, int memory_step);
+void		debug_map(t_game *game);
+void		check_whole_map(t_game *game);
 
 /* ************************************************************************** */
 /* TESTS                                                                      */
