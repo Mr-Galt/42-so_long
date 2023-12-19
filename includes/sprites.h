@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:15:53 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/19 07:17:15 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/19 09:54:57 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,9 @@
 /* ************************************************************************** */
 
 # define S_GROUND_01			"./assets/tileset/ground/s/ground_tile_01.xpm"
+# define S_GROUND_02			"./assets/tileset/ground/s/ground_tile_02.xpm"
+# define S_GROUND_03			"./assets/tileset/ground/s/ground_tile_03.xpm"
+# define S_GROUND_04			"./assets/tileset/ground/s/ground_tile_04.xpm"
 
 /* ************************************************************************** */
 /* DEFINE PITTY LEFTOVERS                                                     */

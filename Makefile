@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/12/19 07:08:05 by mheinke          ###   ########.fr        #
+#    Updated: 2023/12/19 10:12:23 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRCS_FILES	=	main.c \
 				\
 				init/init_game.c \
 				init/init_player.c \
+				init/init_tileset.c \
 				init/init_startscreen.c \
 				init/init_optionscreen.c \
 				init/init_creditscreen.c \

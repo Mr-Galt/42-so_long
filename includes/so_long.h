@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/19 07:13:17 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/19 10:01:47 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,11 @@ typedef struct s_loadingscreen
 	int		loading_alloc_flag;
 } t_loadingscreen;
 
+typedef struct s_tileset
+{
+	void	*wall_s[4];
+} t_tileset;
+
 typedef struct s_map
 {
 	char	*string;
@@ -192,6 +197,7 @@ typedef struct s_game
 	t_loadingscreen	*loadingscreen;
 	t_player		*player;
 	t_music			*music;
+	t_tileset		*tileset;
 }	t_game;
 
 /* ************************************************************************** */
@@ -251,6 +257,8 @@ void 		init_optionscreen(t_game *game, int size);
 void		init_loadingscreen(t_game *game);
 
 void		init_player(t_game *game);
+
+void		init_tileset(t_game *game);
 
 void 		init_buttons_optionscreen(t_game *game);
 
