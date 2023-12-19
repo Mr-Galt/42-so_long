@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/18 21:31:29 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/19 07:13:17 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@
 # define SCREEN_HEIGHT	480
 
 # define SCREEN_NAME	"Martin's Game"
+
+# define SPRITE_SIZE	16
 
 # define OFFSET_S		1
 # define OFFSET_M		2
@@ -95,6 +97,7 @@ typedef struct s_player
 
 
 	void	*idle;
+	void    *block;
 	int		current_collect;
 	int		max_collect;
 }	t_player;
@@ -210,6 +213,8 @@ void 		free_creditscreen(t_game *game);
 void		loadingscreen(t_game *game);
 void		window_changer(t_game *game);
 
+void		going_to_game(t_game *game);
+
 /* ************************************************************************** */
 /* FUNCTIONS - KEY & MOUSE HOOKS                                              */
 /* ************************************************************************** */
@@ -307,6 +312,14 @@ void		debug_map(t_game *game);
 void		check_whole_map(t_game *game);
 void		exit_map_failure(t_game *game, char *message);
 void		check_valid_path(t_game *game);
+
+
+
+/* ************************************************************************** */
+/* GAME                                                                       */
+/* ************************************************************************** */
+
+void		draw_walls(t_game *game);
 
 /* ************************************************************************** */
 /* TESTS                                                                      */

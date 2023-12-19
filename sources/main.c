@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/15 06:32:53 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/19 07:30:17 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void game_status(t_game *game)
 	}
 	else if (game->state == STATE_GAME)
 	{
+		draw_walls(game);
 		render_img(game->player->position[0], game->player->position[1], game->player->idle, game);
 	}
 	else if (game->state == STATE_EXIT)
@@ -101,6 +102,7 @@ int	main(int argc, char **argv)
 	clock_t end2 = clock();
 	double time_taken2 = ((double)(end2 - start2)) / CLOCKS_PER_SEC;
 	printf("Time taken for leftover alloc: %f seconds\n", time_taken2);
+	printf("Rows: %d, Columns: %d\n", game.map->rows, game.map->columns);
 
 	// play_music(BACKGROUND_MUSIC, &game);
 	// play_music(JUMP_SFX, &game);

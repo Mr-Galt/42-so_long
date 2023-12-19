@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/12/18 20:58:22 by mheinke          ###   ########.fr        #
+#    Updated: 2023/12/19 07:08:05 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,8 @@ SRCS_FILES	=	main.c \
 				menu/menu_mouse_click.c \
 				\
 				loadingscreen/loadingscreen.c \
+				\
+				game/rendering_map.c \
 
 SRCS		= $(addprefix $(SRCS_DIR)/,$(SRCS_FILES))
 

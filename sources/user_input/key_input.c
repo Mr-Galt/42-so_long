@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:25:33 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/14 18:12:57 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/19 06:45:06 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	keydown(int keycode, t_game *game)
 	{
 		if (keycode == W)
 		{
-			stop_music(game);
 			game->state = STATE_GAME;
 		}
 	}
@@ -33,7 +32,7 @@ int	keyup(int keycode, t_game *game)
 {
 	(void) game;
 	if (keycode == ESC)
-		kill(game);
+		game->state = STATE_EXIT;
 	return (0);
 }
 

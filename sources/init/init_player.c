@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 15:07:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/14 18:39:50 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/19 07:13:50 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 void	init_player(t_game *game)
 {
 	game->player->current_collect = 0;
-	game->player->img_width = 64;
-	game->player->img_height = 64;
+	game->player->img_width = 16;
+	game->player->img_height = 16;
 	game->player->position[0] = 20;
 	game->player->position[1] = 20;
 	game->player->idle = mlx_xpm_file_to_image(game->mlx,
 			PLAYER, &game->player->img_width, &game->player->img_height);
+	game->player->block = mlx_xpm_file_to_image(game->mlx,
+			S_GROUND_01, &game->player->img_width, &game->player->img_height);
 }

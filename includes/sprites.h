@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:15:53 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/12 20:29:25 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/19 07:17:15 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,12 @@
 # define L_LOADINGSCREEN_2		"./assets/loadingscreen/l/loadingscreen_l_2.xpm"
 # define L_LOADINGSCREEN_3		"./assets/loadingscreen/l/loadingscreen_l_3.xpm"
 # define L_LOADINGSCREEN_4		"./assets/loadingscreen/l/loadingscreen_l_4.xpm"
+
+/* ************************************************************************** */
+/* DEFINE TILESET                                                             */
+/* ************************************************************************** */
+
+# define S_GROUND_01			"./assets/tileset/ground/s/ground_tile_01.xpm"
 
 /* ************************************************************************** */
 /* DEFINE PITTY LEFTOVERS                                                     */

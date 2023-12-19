@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   statemachine.c                                     :+:      :+:    :+:   */
+/*   rendering_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 10:38:12 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/19 06:44:39 by mheinke          ###   ########.fr       */
+/*   Created: 2023/12/19 07:00:57 by mheinke           #+#    #+#             */
+/*   Updated: 2023/12/19 09:05:02 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-int	check_state(t_game *game)
+void	draw_walls(t_game *game)
 {
-	return (game->state);
-}
+	int	i;
+	int	j;
 
-void	change_state(t_game *game, e_state new_state)
-{
-	game->state = new_state;
-}
+	i = 0;
 
-int	check_screenstatus(t_game *game)
-{
-	return (game->start_menu->option_screensize_status);
-}
+	render_img(50, 50, game->player->block, game);
+	
 
-void	going_to_game(t_game *game)
-{
-	if (game->state == STATE_GAME)
+	while (i < (game->map->rows))
 	{
-		destroy_all_images(game);
+		j = 0;
+		while (j < (game->map->columns))
+		{
+			if (game->map->full[i][j] == '1')
+			{
+				render_img(j * SPRITE_SIZE, i * SPRITE_SIZE, game->player->block, game);
+			}
+			j++;
+		}
+		i++;
 	}
 }
