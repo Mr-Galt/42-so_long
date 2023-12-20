@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/19 10:01:47 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/20 09:13:01 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 
 # define SCREEN_NAME	"Martin's Game"
 
-# define SPRITE_SIZE	16
+# define SPRITE_SIZE	64
 
 # define OFFSET_S		1
 # define OFFSET_M		2
@@ -91,12 +91,19 @@ typedef struct s_player
 	int		img_height;
 	int		position[2];
 	int		last_position[2];
+
+	int		top_left[2];
+	int		top_right[2];
+	int		bottom_left[2];
+	int		bottom_right[2];
+	
 	int		jumping;
 	int		is_on_ground;
 	int		action_key[3];
 
 
 	void	*idle;
+	void	*walk[4];
 	void    *block;
 	int		current_collect;
 	int		max_collect;
@@ -181,12 +188,20 @@ typedef struct s_game
 	int				screen_width;
 	int				screen_height;
 	int				screen_size;
+	
+	int				camera_x;
+	int				camera_y;
 
 	int				map_fd;
+	int				map_px_width;
+	int				map_px_height;
 
 	int				state;
 
 	int				debug;
+	
+	int				player_offset[2];
+	int				global_offset[2];
 	
 	long long		timestamp;
 	long long		last_timestamp;
@@ -337,5 +352,8 @@ int			put_a_string(t_game *game);
 void 		do_it(t_game *game);
 int 		play_music(char* sfx, t_game *game);
 int    		stop_music(t_game *game);
+
+
+void		player_viewport(t_game *game);
 
 #endif

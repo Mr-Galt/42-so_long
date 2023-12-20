@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/19 10:15:42 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/20 09:26:29 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void game_status(t_game *game)
 	else if (game->state == STATE_GAME)
 	{
 		draw_walls(game);
-		render_img(game->player->position[0], game->player->position[1], game->player->idle, game);
+		player_viewport(game);
 	}
 	else if (game->state == STATE_EXIT)
 	{

@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:26:32 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/19 07:27:33 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/20 09:13:50 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void	read_map(t_game *game, char *argv)
 	close(game->map_fd);
 	game->map->rows = ft_lstsize(map_list);
 	game->map->columns = ft_strlen(map_list->content) - 1;
+	game->map_px_height = game->map->rows * SPRITE_SIZE;
+	game->map_px_width = game->map->columns * SPRITE_SIZE;
 	map_calloc(game, 2);
 	map_to_array(map_list, game);
 	check_whole_map(game);

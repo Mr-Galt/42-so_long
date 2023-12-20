@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:15:53 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/19 09:54:57 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/20 08:17:42 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,15 +96,20 @@
 /* DEFINE TILESET                                                             */
 /* ************************************************************************** */
 
-# define S_GROUND_01			"./assets/tileset/ground/s/ground_tile_01.xpm"
-# define S_GROUND_02			"./assets/tileset/ground/s/ground_tile_02.xpm"
-# define S_GROUND_03			"./assets/tileset/ground/s/ground_tile_03.xpm"
-# define S_GROUND_04			"./assets/tileset/ground/s/ground_tile_04.xpm"
+# define S_GROUND_01			"./assets/tileset/ground/ground_tile_01.xpm"
+# define S_GROUND_02			"./assets/tileset/ground/ground_tile_02.xpm"
+# define S_GROUND_03			"./assets/tileset/ground/ground_tile_03.xpm"
+# define S_GROUND_04			"./assets/tileset/ground/ground_tile_04.xpm"
 
 /* ************************************************************************** */
 /* DEFINE PITTY LEFTOVERS                                                     */
 /* ************************************************************************** */
 
-# define PLAYER					"./assets/player/new.xpm"
+# define PLAYER_IDLE			"./assets/player/walk/player_walk_01.xpm"
+
+# define PLAYER_WALK_01			"./assets/player/walk/player_walk_01.xpm"
+# define PLAYER_WALK_02			"./assets/player/walk/player_walk_02.xpm"
+# define PLAYER_WALK_03			"./assets/player/walk/player_walk_03.xpm"
+# define PLAYER_WALK_04			"./assets/player/walk/player_walk_04.xpm"
 
 #endif
