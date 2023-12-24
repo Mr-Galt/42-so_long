@@ -6,7 +6,7 @@
 #    By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 13:29:51 by mheinke           #+#    #+#              #
-#    Updated: 2023/12/20 08:45:57 by mheinke          ###   ########.fr        #
+#    Updated: 2023/12/24 06:36:54 by mheinke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS_FILES	=	main.c \
 				utils/error_handling.c \
 				utils/window_changer.c \
 				utils/musicplayer.c \
+				utils/camera.c \
 				\
 				cleanup/destroy_optionscreen.c \
 				cleanup/destroy_creditscreen.c \
@@ -58,6 +59,9 @@ SRCS_FILES	=	main.c \
 				\
 				player/player_movement.c \
 				player/player.c \
+				player/player_state_machine.c \
+				player/player_animation.c \
+				player/player_direction.c \
 				\
 				menu/startscreen.c \
 				menu/optionscreen.c \

@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/20 09:13:01 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/24 06:51:42 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@
 # define OFFSET_M		2
 # define OFFSET_L		3
 
+# define PLAYER_SPEED	100
+
 /* ************************************************************************** */
 /* DEFINE MAP	                                                              */
 /* ************************************************************************** */
@@ -77,7 +79,15 @@ typedef enum
     STATE_GAME,
     STATE_WIN,
     STATE_LOSE
-}e_state;
+} e_state;
+
+typedef enum 
+{
+    PLAYER_STANDING,
+    PLAYER_WALKING,
+    PLAYER_JUMPING,
+    PLAYER_FALLING
+} e_player_state;
 
 /* ************************************************************************** */
 /* DEFINE STRUCTS                                                             */
@@ -97,13 +107,14 @@ typedef struct s_player
 	int		bottom_left[2];
 	int		bottom_right[2];
 	
-	int		jumping;
-	int		is_on_ground;
-	int		action_key[3];
-
+	int		state;
+	int		direction_x;
+	int		direction_y;
 
 	void	*idle;
+	int		idle_frames;
 	void	*walk[4];
+	int		walk_frames;
 	void    *block;
 	int		current_collect;
 	int		max_collect;
@@ -236,6 +247,8 @@ void		window_changer(t_game *game);
 
 void		going_to_game(t_game *game);
 
+void 		update_camera(t_game *game);
+
 /* ************************************************************************** */
 /* FUNCTIONS - KEY & MOUSE HOOKS                                              */
 /* ************************************************************************** */
@@ -246,8 +259,11 @@ int 		mouse_move(int x, int y, t_game *game);
 
 void		key_register_startmenu(t_game *game);
 int			kill(t_game *game);
-int			keydown(int keycode, t_game *game);
-int 		keyup(int keycode, t_game *game);
+
+int			keydown_start(int keycode, t_game *game);
+int 		keyup_start(int keycode, t_game *game);
+int			keydown_game(int keycode, t_game *game);
+int 		keyup_game(int keycode, t_game *game);
 
 void		mouse_register_startmenu(t_game *game);
 int 		mouse_click_start_menu(int button, int x, int y, t_game *game);
@@ -348,6 +364,9 @@ void		draw_walls(t_game *game);
 /* TESTS                                                                      */
 /* ************************************************************************** */
 
+void		updating_player_state(t_game *game);
+
+
 int			put_a_string(t_game *game);
 void 		do_it(t_game *game);
 int 		play_music(char* sfx, t_game *game);
@@ -355,5 +374,7 @@ int    		stop_music(t_game *game);
 
 
 void		player_viewport(t_game *game);
+void		set_player_direction(int keycode, t_game *game);
+void		reset_player_direction(int keycode, t_game *game);
 
 #endif

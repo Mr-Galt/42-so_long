@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/20 09:26:29 by mheinke          ###   ########.fr       */
+/*   Updated: 2023/12/24 06:40:57 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void game_status(t_game *game)
 	{
 		draw_walls(game);
 		player_viewport(game);
+	//	ft_printf("Player Direction X: %d\tPlayer Direction Y: %d\n", game->player->direction_x, game->player->direction_y);
 	}
 	else if (game->state == STATE_EXIT)
 	{
