@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:25:33 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/24 06:55:36 by mheinke          ###   ########.fr       */
+/*   Updated: 2024/01/06 11:53:32 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	keydown_start(int keycode, t_game *game)
 	{
 		game->state = STATE_GAME;
 	}
+	player_move(keycode, game);
 	return (0);
 }
 
@@ -37,19 +38,4 @@ int	kill(t_game *game)
 {
 	mlx_destroy_window(game->mlx, game->win);
 	exit(1);
-}
-
-int	keydown_game(int keycode, t_game *game)
-{
-	//	set_player_direction(keycode, game);
-	player_move(keycode, game);
-	return (0);
-}
-
-int	keyup_game(int keycode, t_game *game)
-{
-	(void) game;
-	if (keycode == ESC)
-		game->state = STATE_EXIT;	
-	return (0);
 }

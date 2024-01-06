@@ -6,11 +6,29 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:48:49 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/14 10:21:53 by mheinke          ###   ########.fr       */
+/*   Updated: 2024/01/02 08:23:14 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+
+long long delta(void) 
+{
+    static struct timeval last_time;  // Static variable to store the time of the last frame
+    struct timeval current_time;
+    long long delta;
+
+    gettimeofday(&current_time, NULL);
+
+    // Calculate the time difference in milliseconds
+    delta = (current_time.tv_sec - last_time.tv_sec) * 1000LL + 
+            (current_time.tv_usec - last_time.tv_usec) / 1000;
+
+    // Update last_time to current_time for the next call
+    last_time = current_time;
+
+    return delta;
+}
 
 long long	delta_time(void)
 {

@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:23:19 by mheinke           #+#    #+#             */
-/*   Updated: 2023/12/24 06:51:42 by mheinke          ###   ########.fr       */
+/*   Updated: 2024/01/06 21:10:52 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 # define OFFSET_M		2
 # define OFFSET_L		3
 
-# define PLAYER_SPEED	100
+# define PLAYER_SPEED	350
 
 /* ************************************************************************** */
 /* DEFINE MAP	                                                              */
@@ -217,6 +217,7 @@ typedef struct s_game
 	long long		timestamp;
 	long long		last_timestamp;
 	int				delta_fps;
+	float			delta;
 
 	t_map			*map;
 	t_start_menu	*start_menu;
@@ -231,6 +232,7 @@ typedef struct s_game
 /* ************************************************************************** */
 
 long long	delta_time(void);
+long long 	delta(void); 
 void		show_fps(t_game *game);
 void		calculate_fps(t_game *game);
 int			render_img(int x, int y, void *sprite, t_game *game);
