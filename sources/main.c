@@ -6,7 +6,7 @@
 /*   By: mheinke <mheinke@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 09:20:58 by mheinke           #+#    #+#             */
-/*   Updated: 2024/01/06 21:11:38 by mheinke          ###   ########.fr       */
+/*   Updated: 2024/01/16 08:24:52 by mheinke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	game_loop(t_game *game)
 	
 	now = delta_time();
 	delta_now = now - game->last_timestamp;
-	game->delta = delta();
+//	game->delta = delta();
 	if (delta_now > 15)
 	{
 		mlx_clear_window(game->mlx, game->win);
